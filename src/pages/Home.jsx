@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ChevronDown, Layers, Cpu } from 'lucide-react';
 import { osData } from '../data/osData';
+import OnThisDay from '../components/ui/OnThisDay';
 import './Home.css';
 
 const ERAS = [
@@ -139,6 +140,13 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── On This Day ───────────────────────────────────────── */}
+      <section className="container" style={{ marginBottom: 'var(--s6)', marginTop: 'var(--s4)' }}>
+        <div style={{ maxWidth: 860, margin: '0 auto' }}>
+          <OnThisDay />
         </div>
       </section>
 

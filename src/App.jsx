@@ -8,10 +8,12 @@ import OSDetail from './pages/OSDetail';
 import Timeline from './pages/Timeline';
 import Compare from './pages/Compare';
 import Gallery from './pages/Gallery';
+import SoundGallery from './pages/SoundGallery';
 import Museum from './pages/MuseumMode';
 import Museum3D from './pages/Museum3D';
 import About from './pages/About';
 import Favorites from './pages/Favorites';
+import EasterEggs from './pages/EasterEggs';
 import { ThemeProvider } from './context/ThemeContext';
 import { useKonamiCode } from './hooks/useKonamiCode';
 import BSOD from './components/ui/BSOD';
@@ -34,10 +36,12 @@ function App() {
             <Route path="/os/:id"    element={<OSDetail />} />
             <Route path="/compare"   element={<Compare />} />
             <Route path="/gallery"   element={<Gallery />} />
+            <Route path="/sounds"    element={<SoundGallery />} />
             <Route path="/museum"    element={<Museum />} />
             <Route path="/museum3d"  element={<Museum3D />} />
             <Route path="/about"     element={<About />} />
             <Route path="/favorites" element={<Favorites />} />
+            <Route path="/easter-eggs" element={<EasterEggs />} />
           </Routes>
         </Layout>
       </Router>

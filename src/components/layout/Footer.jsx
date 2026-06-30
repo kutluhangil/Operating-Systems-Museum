@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Layers, Code, MessageSquare, ArrowUpRight } from 'lucide-react';
 
 const EXPLORE_LINKS = [['/', 'Home'], ['/timeline', 'Timeline'], ['/library', 'OS Library'], ['/compare', 'Compare']];
-const MUSEUM_LINKS  = [['/gallery', 'Gallery'], ['/museum', '3D Museum'], ['/favorites', 'Favorites'], ['/about', 'About']];
+const MUSEUM_LINKS  = [['/gallery', 'Gallery'], ['/sounds', 'Sound Gallery'], ['/museum', '3D Museum'], ['/favorites', 'Favorites'], ['/easter-eggs', 'Easter Eggs'], ['/about', 'About']];
 
 const Footer = () => {
   const { t } = useTranslation();

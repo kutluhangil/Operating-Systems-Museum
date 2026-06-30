@@ -89,7 +89,8 @@
 }
 
 .search-result-item:hover,
-.search-result-item:focus {
+.search-result-item:focus,
+.search-result-item.active {
   background: var(--surf-3);
   outline: none;
 }

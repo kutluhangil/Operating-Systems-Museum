@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { osData } from '../data/osData';
 import { X } from 'lucide-react';
 import { soundManager } from '../utils/SoundManager';
+import CompareSlider from '../components/ui/CompareSlider';
 
 const FIELDS = [
   ['developer', 'compare.developer'],
@@ -86,6 +87,8 @@ const Compare = () => {
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', fontWeight: 700, letterSpacing: '-0.03em' }}>{osB.name}</div>
             </motion.div>
           </div>
+
+          <CompareSlider osA={osA} osB={osB} />
 
           {/* Table */}
           <div style={{ maxWidth: 860, background: 'var(--surf-2)', border: '1px solid var(--border)', borderRadius: 'var(--r3)', overflow: 'hidden' }}>
