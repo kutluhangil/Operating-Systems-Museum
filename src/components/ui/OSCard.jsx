@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Heart, ArrowUpRight, Building2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useFavorites } from '../../context/FavoritesContext';
+import { motion } from 'framer-motion';
 import './OSCard.css';
 
 const statusVariant = (s = '') => {
@@ -18,7 +19,14 @@ const OSCard = ({ os }) => {
   const fav = isFavorite(os.id);
 
   return (
-    <div className="os-card card">
+    <motion.div 
+      className="os-card card"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, type: 'spring', bounce: 0.4 }}
+      whileHover={{ y: -4 }}
+    >
       {/* Color stripe */}
       <div className="os-card-stripe" style={{ background: os.color || 'var(--accent)' }} />
 
@@ -64,7 +72,7 @@ const OSCard = ({ os }) => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

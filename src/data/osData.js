@@ -26,7 +26,7 @@ export const osData = [
     editions: ["MS-DOS", "PC-DOS"],
     predecessor: null,
     successor: "ms-dos-6",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/3/30/MS-DOS_logo.svg"
+    icon: "/assets/logos/ms-dos.svg"
   },
   {
     id: "ms-dos-6",
@@ -54,7 +54,7 @@ export const osData = [
     editions: ["MS-DOS 6.22", "PC-DOS 7"],
     predecessor: "ms-dos",
     successor: "windows-95",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/3/30/MS-DOS_logo.svg"
+    icon: "/assets/logos/ms-dos-6.svg"
   },
   {
     id: "windows-1",
@@ -82,7 +82,7 @@ export const osData = [
     editions: ["Windows 1.0"],
     predecessor: null,
     successor: "windows-95",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/3/30/Windows_logo_-_1985.svg"
+    icon: "/assets/logos/windows-1.svg"
   },
   {
     id: "windows-95",
@@ -110,7 +110,7 @@ export const osData = [
     editions: ["Windows 95", "Windows 95 OSR1", "Windows 95 OSR2", "Windows 95 OSR2.5"],
     predecessor: "ms-dos-6",
     successor: "windows-98",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Windows_9x_BSOD.png"
+    icon: "/assets/logos/windows-95.svg"
   },
   {
     id: "windows-98",
@@ -138,7 +138,7 @@ export const osData = [
     editions: ["Windows 98", "Windows 98 Second Edition (SE)"],
     predecessor: "windows-95",
     successor: "windows-me",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/1/11/Windows_logo_-_1998.svg"
+    icon: "/assets/logos/windows-98.svg"
   },
   {
     id: "windows-me",
@@ -166,7 +166,7 @@ export const osData = [
     editions: ["Windows ME"],
     predecessor: "windows-98",
     successor: "windows-xp",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/1/11/Windows_logo_-_1998.svg"
+    icon: "/assets/logos/windows-me.svg"
   },
   {
     id: "windows-xp",
@@ -194,7 +194,7 @@ export const osData = [
     editions: ["Home", "Professional", "Media Center", "Tablet PC", "Starter", "Embedded"],
     predecessor: "windows-me",
     successor: "windows-vista",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/4/48/Windows_logo_-_2001.svg"
+    icon: "/assets/logos/windows-xp.svg"
   },
   {
     id: "windows-vista",
@@ -222,7 +222,7 @@ export const osData = [
     editions: ["Starter", "Home Basic", "Home Premium", "Business", "Enterprise", "Ultimate"],
     predecessor: "windows-xp",
     successor: "windows-7",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/4/45/Windows_Vista_logo.png"
+    icon: "/assets/logos/windows-vista.svg"
   },
   {
     id: "windows-7",
@@ -250,7 +250,7 @@ export const osData = [
     editions: ["Starter", "Home Premium", "Professional", "Enterprise", "Ultimate"],
     predecessor: "windows-vista",
     successor: "windows-8",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg"
+    icon: "/assets/logos/windows-7.svg"
   },
   {
     id: "windows-8",
@@ -278,7 +278,7 @@ export const osData = [
     editions: ["Windows 8", "Windows 8 Pro", "Windows 8 Enterprise", "Windows RT"],
     predecessor: "windows-7",
     successor: "windows-10",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/7/76/Windows_8_logo_and_wordmark.svg"
+    icon: "/assets/logos/windows-8.svg"
   },
   {
     id: "windows-10",
@@ -306,7 +306,7 @@ export const osData = [
     editions: ["Home", "Pro", "Enterprise", "Education", "IoT", "S Mode"],
     predecessor: "windows-8",
     successor: "windows-11",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Windows_logo_-_2012.svg"
+    icon: "/assets/logos/windows-10.svg"
   },
   {
     id: "windows-11",
@@ -334,7 +334,7 @@ export const osData = [
     editions: ["Home", "Pro", "Pro for Workstations", "Enterprise", "Education"],
     predecessor: "windows-10",
     successor: null,
-    icon: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Windows_11_logo.svg"
+    icon: "/assets/logos/windows-11.svg"
   },
 
   // ── APPLE / macOS ─────────────────────────────────────────────────
@@ -364,7 +364,7 @@ export const osData = [
     editions: ["Mac OS X 10.0"],
     predecessor: null,
     successor: "macos-monterey",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/2/21/Mac_OS_X_Logo.svg"
+    icon: "/assets/logos/macos-x.svg"
   },
   {
     id: "macos-monterey",
@@ -392,7 +392,7 @@ export const osData = [
     editions: ["macOS Monterey"],
     predecessor: "macos-x",
     successor: null,
-    icon: "https://upload.wikimedia.org/wikipedia/commons/2/21/Mac_OS_X_Logo.svg"
+    icon: "/assets/logos/macos-monterey.svg"
   },
 
   // ── LINUX ──────────────────────────────────────────────────────────
@@ -422,7 +422,7 @@ export const osData = [
     editions: ["Ubuntu Desktop", "Ubuntu Server", "Ubuntu Core", "Kubuntu", "Xubuntu", "Lubuntu"],
     predecessor: null,
     successor: null,
-    icon: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo-ubuntu_cof-orange-hex.svg"
+    icon: "/assets/logos/ubuntu.svg"
   },
   {
     id: "debian",
@@ -450,7 +450,7 @@ export const osData = [
     editions: ["Stable", "Testing", "Unstable (Sid)"],
     predecessor: null,
     successor: null,
-    icon: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Debian-OpenLogo.svg"
+    icon: "/assets/logos/debian.svg"
   },
   {
     id: "fedora",
@@ -478,7 +478,7 @@ export const osData = [
     editions: ["Fedora Workstation", "Fedora Server", "Fedora IoT", "Fedora Silverblue"],
     predecessor: null,
     successor: null,
-    icon: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Fedora_logo.svg"
+    icon: "/assets/logos/fedora.svg"
   },
 
   // ── MOBILE ─────────────────────────────────────────────────────────
@@ -508,7 +508,7 @@ export const osData = [
     editions: ["Android (AOSP)", "Android Go", "Android TV", "Wear OS", "Android Auto"],
     predecessor: null,
     successor: null,
-    icon: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg"
+    icon: "/assets/logos/android.svg"
   },
   {
     id: "ios",
@@ -536,7 +536,7 @@ export const osData = [
     editions: ["iOS", "iPadOS", "tvOS", "watchOS", "visionOS"],
     predecessor: null,
     successor: null,
-    icon: "https://upload.wikimedia.org/wikipedia/commons/c/ca/IOS_logo.svg"
+    icon: "/assets/logos/ios.svg"
   },
 
   // ── OTHER / EXPERIMENTAL ──────────────────────────────────────────
@@ -566,7 +566,7 @@ export const osData = [
     editions: ["ChromeOS", "ChromeOS Flex"],
     predecessor: null,
     successor: null,
-    icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Google_Chrome_Logo.svg"
+    icon: "/assets/logos/chromeos.svg"
   },
   {
     id: "reactos",
@@ -594,7 +594,7 @@ export const osData = [
     editions: ["ReactOS"],
     predecessor: null,
     successor: null,
-    icon: "https://upload.wikimedia.org/wikipedia/commons/1/13/ReactOS_Logo.png"
+    icon: "/assets/logos/reactos.svg"
   },
   {
     id: "haiku",
@@ -622,7 +622,7 @@ export const osData = [
     editions: ["Haiku R1 Beta"],
     predecessor: null,
     successor: null,
-    icon: "https://upload.wikimedia.org/wikipedia/commons/0/08/Haiku_OS.svg"
+    icon: "/assets/logos/haiku.svg"
   },
   {
     id: "freedos",
@@ -650,7 +650,7 @@ export const osData = [
     editions: ["FreeDOS 1.3"],
     predecessor: null,
     successor: null,
-    icon: "https://upload.wikimedia.org/wikipedia/commons/7/74/FreeDOS_logo.svg"
+    icon: "/assets/logos/freedos.svg"
   }
 ];
 

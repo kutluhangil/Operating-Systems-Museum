@@ -107,7 +107,7 @@
   font-family: var(--font-display);
   font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 800;
-  line-height: 0.95;
+  line-height: 1.1;
   letter-spacing: -0.05em;
   margin-bottom: 28px;
   max-width: 900px;
@@ -123,8 +123,8 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   /* Fix the "g" clipping bug */
-  padding-bottom: 0.15em;
-  margin-bottom: -0.15em;
+  padding-bottom: 0.25em;
+  margin-bottom: -0.25em;
   display: inline-block;
 }
 
