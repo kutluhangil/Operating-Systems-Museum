@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, Tag, Cpu, HardDrive, Globe, Heart, Play, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Calendar, Tag, Cpu, HardDrive, Globe, Heart, Play, Building2 } from 'lucide-react';
 import { getOSById } from '../data/osData';
 import { useFavorites } from '../context/FavoritesContext';
 import { useTranslation } from 'react-i18next';
 import './OSDetail.css';
 
-const OPEN_SOURCE_IDS = ['ubuntu', 'debian', 'fedora', 'reactos', 'haiku', 'freedos'];
+const OPEN_SOURCE = ['ubuntu', 'debian', 'fedora', 'reactos', 'haiku', 'freedos'];
+const TABS = ['overview', 'history', 'facts', 'specs', 'editions', 'boot'];
 
-const MetaBadge = ({ icon, label }) => (
-  <div className="meta-badge">
-    {icon}
-    <span>{label}</span>
+const Pill = ({ icon, label }) => (
+  <div className="detail-pill">
+    {icon} <span>{label}</span>
   </div>
 );
 
@@ -20,14 +20,18 @@ const OSDetail = () => {
   const { id } = useParams();
   const { t } = useTranslation();
   const { toggle, isFavorite } = useFavorites();
+  const [activeTab, setActiveTab] = useState('overview');
   const os = getOSById(id);
 
   if (!os) {
     return (
       <div className="detail-not-found container">
-        <h2>{t('detail.not_found')}</h2>
-        <p style={{ color: 'var(--text-silver)', marginTop: 12, marginBottom: 32 }}>{t('detail.not_found_desc')}</p>
-        <Link to="/library" className="btn btn-primary">
+        <div style={{ fontSize: '4rem', marginBottom: 24 }}>🔍</div>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', marginBottom: 12 }}>
+          {t('detail.not_found')}
+        </h2>
+        <p style={{ color: 'var(--t2)', marginBottom: 32 }}>{t('detail.not_found_desc')}</p>
+        <Link to="/library" className="btn btn-ghost">
           <ArrowLeft size={16} /> {t('detail.back')}
         </Link>
       </div>
@@ -35,155 +39,204 @@ const OSDetail = () => {
   }
 
   const fav = isFavorite(os.id);
-  const isOpenSource = OPEN_SOURCE_IDS.includes(os.id);
-  const predecessorOS = os.predecessor ? getOSById(os.predecessor) : null;
-  const successorOS = os.successor ? getOSById(os.successor) : null;
+  const isOpen = OPEN_SOURCE.includes(os.id);
+  const predOS  = os.predecessor ? getOSById(os.predecessor) : null;
+  const succOS  = os.successor   ? getOSById(os.successor)   : null;
+
+  // Compute a strong accent for the hero
+  const heroColor = os.color || '#1e1e2a';
+  const isLight   = heroColor.startsWith('#f') || heroColor.startsWith('#e');
 
   return (
-    <motion.div
-      className="os-detail-page container"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-    >
-      <Link to="/library" className="os-detail-back">
-        <ArrowLeft size={16} /> {t('detail.back')}
-      </Link>
-
-      {/* ── Header ── */}
-      <motion.div
-        className="os-detail-header"
-        initial={{ y: 24, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.1 }}
-      >
-        <div className="os-detail-icon-wrapper">
-          {os.icon && <img src={os.icon} alt={os.name} className="os-detail-icon" />}
+    <div>
+      {/* ── Full-Bleed Hero ── */}
+      <div className="detail-hero" style={{ background: heroColor }}>
+        <div className="detail-hero-bg">
+          {/* radial highlight */}
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: `radial-gradient(ellipse at 60% 40%, ${heroColor}dd 0%, ${heroColor}22 100%)`,
+          }} />
+          <div className="detail-hero-gradient" />
         </div>
-        <div className="os-detail-info">
-          <h1 className="os-detail-title">{os.name}</h1>
-          <div className="os-detail-meta">
-            <MetaBadge icon={<Calendar size={14} />} label={`${t('detail.release_year')}: ${os.releaseYear}`} />
-            <MetaBadge icon={<Tag size={14} />} label={`${t('detail.developer')}: ${os.developer}`} />
-            <MetaBadge icon={<Cpu size={14} />} label={`${t('detail.kernel')}: ${os.kernel}`} />
-            <MetaBadge icon={<HardDrive size={14} />} label={`${t('detail.filesystem')}: ${os.fileSystem || t('common.n_a')}`} />
-            {os.defaultBrowser && (
-              <MetaBadge icon={<Globe size={14} />} label={`${t('detail.browser')}: ${os.defaultBrowser}`} />
-            )}
+
+        <div className="container detail-hero-inner">
+          {/* Icon */}
+          <div className="detail-hero-icon">
+            {os.icon
+              ? <img src={os.icon} alt={os.name} />
+              : <span style={{ fontSize: 48 }}>💾</span>
+            }
           </div>
-          <p className="os-detail-description">{os.description}</p>
-          <div className="os-detail-actions">
-            <button className="btn btn-primary">
-              <Play size={16} /> {t('detail.launch')}
-            </button>
-            <button
-              className={`btn btn-secondary`}
-              onClick={() => toggle(os.id)}
-            >
-              <Heart size={16} fill={fav ? 'currentColor' : 'none'} />
-              {fav ? t('os_card.remove_favorite') : t('os_card.add_favorite')}
-            </button>
-          </div>
-        </div>
-      </motion.div>
 
-      {/* ── History ── */}
-      {os.history && (
-        <div className="detail-section">
-          <h2 className="detail-section-title">{t('detail.history')}</h2>
-          <p className="detail-history-text">{os.history}</p>
-        </div>
-      )}
+          {/* Text */}
+          <div className="detail-hero-text">
+            <Link to="/library" className="detail-back">
+              <ArrowLeft size={14} /> {t('detail.back')}
+            </Link>
 
-      {/* ── Interesting Facts ── */}
-      {os.interestingFacts && os.interestingFacts.length > 0 && (
-        <div className="detail-section">
-          <h2 className="detail-section-title">{t('detail.facts')}</h2>
-          <div className="facts-grid">
-            {os.interestingFacts.map((fact, i) => (
-              <motion.div
-                key={i}
-                className="fact-card"
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
+            <h1 className="detail-title">{os.name}</h1>
+
+            <div className="detail-pills">
+              <Pill icon={<Calendar size={12} />} label={os.releaseYear} />
+              <Pill icon={<Building2 size={12} />} label={os.developer} />
+              <Pill icon={<Cpu size={12} />} label={os.kernel} />
+              {os.fileSystem && <Pill icon={<HardDrive size={12} />} label={os.fileSystem} />}
+              {os.defaultBrowser && <Pill icon={<Globe size={12} />} label={os.defaultBrowser} />}
+              <Pill icon={<Tag size={12} />} label={os.status} />
+            </div>
+
+            <div className="detail-hero-actions">
+              <Link to="/museum" className="btn btn-primary" style={{ background: 'rgba(255,255,255,0.95)', color: '#000' }}>
+                <Play size={15} /> {t('detail.launch')}
+              </Link>
+              <button
+                className="btn btn-ghost"
+                style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff' }}
+                onClick={() => toggle(os.id)}
               >
-                <div className="fact-num">{i + 1}</div>
-                <p className="fact-text">{fact}</p>
-              </motion.div>
+                <Heart size={15} fill={fav ? 'currentColor' : 'none'} />
+                {fav ? t('os_card.remove_favorite') : t('os_card.add_favorite')}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Body ── */}
+      <div className="detail-body container">
+        {/* Tabs */}
+        <div className="detail-tabs">
+          {TABS.map(tab => (
+            <button
+              key={tab}
+              className={`detail-tab ${activeTab === tab ? 'active' : ''}`}
+              onClick={() => setActiveTab(tab)}
+            >
+              {t(`detail.${tab}`) || tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </button>
+          ))}
+        </div>
+
+        {/* Overview */}
+        <motion.div
+          key={activeTab}
+          className={`detail-section ${activeTab === 'overview' ? 'visible' : ''}`}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
+        >
+          <h2 className="detail-section-title">{t('detail.overview')}</h2>
+          <p className="detail-description">{os.description}</p>
+        </motion.div>
+
+        {/* History */}
+        <div className={`detail-section ${activeTab === 'history' ? 'visible' : ''}`}>
+          <h2 className="detail-section-title">{t('detail.history')}</h2>
+          <p className="detail-history">{os.history || t('detail.not_found_desc')}</p>
+        </div>
+
+        {/* Facts */}
+        <div className={`detail-section ${activeTab === 'facts' ? 'visible' : ''}`}>
+          <h2 className="detail-section-title">{t('detail.facts')}</h2>
+          {os.interestingFacts && os.interestingFacts.length > 0 ? (
+            <div className="detail-facts-grid">
+              {os.interestingFacts.map((fact, i) => (
+                <motion.div
+                  key={i}
+                  className="detail-fact-card"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.07 }}
+                >
+                  <div className="detail-fact-num">{String(i + 1).padStart(2, '0')}</div>
+                  <p className="detail-fact-text">{fact}</p>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <p style={{ color: 'var(--t3)' }}>{t('common.n_a')}</p>
+          )}
+        </div>
+
+        {/* Specs */}
+        <div className={`detail-section ${activeTab === 'specs' ? 'visible' : ''}`}>
+          <h2 className="detail-section-title">{t('detail.specs')}</h2>
+          <div className="detail-specs">
+            {[
+              [t('detail.developer'),     os.developer],
+              [t('detail.release_year'),  os.releaseYear],
+              [t('detail.eol'),           os.endOfLife || t('common.active')],
+              [t('detail.status'),        os.status],
+              [t('detail.kernel'),        os.kernel],
+              [t('detail.architecture'),  os.architecture],
+              [t('detail.filesystem'),    os.fileSystem || t('common.n_a')],
+              [t('detail.browser'),       os.defaultBrowser || t('common.n_a')],
+              ...(os.systemRequirements ? [
+                [t('compare.ram'),     os.systemRequirements.ram || t('common.n_a')],
+                [t('compare.cpu'),     os.systemRequirements.cpu || t('common.n_a')],
+                [t('compare.storage'), os.systemRequirements.storage || t('common.n_a')],
+              ] : []),
+            ].map(([label, val]) => (
+              <div key={label} className="detail-spec-row">
+                <div className="detail-spec-label">{label}</div>
+                <div className="detail-spec-value">{val}</div>
+              </div>
             ))}
           </div>
         </div>
-      )}
 
-      {/* ── Technical Specifications ── */}
-      <div className="detail-section">
-        <h2 className="detail-section-title">{t('detail.specs')}</h2>
-        <table className="specs-table">
-          <tbody>
-            <tr><td>{t('detail.developer')}</td><td>{os.developer}</td></tr>
-            <tr><td>{t('detail.release_year')}</td><td>{os.releaseYear}</td></tr>
-            <tr><td>{t('detail.eol')}</td><td>{os.endOfLife ?? t('common.active')}</td></tr>
-            <tr><td>{t('detail.status')}</td><td>{os.status}</td></tr>
-            <tr><td>{t('detail.kernel')}</td><td>{os.kernel}</td></tr>
-            <tr><td>{t('detail.architecture')}</td><td>{os.architecture}</td></tr>
-            <tr><td>{t('detail.filesystem')}</td><td>{os.fileSystem || t('common.n_a')}</td></tr>
-            <tr><td>{t('detail.browser')}</td><td>{os.defaultBrowser || t('common.n_a')}</td></tr>
-            {os.systemRequirements && (
-              <>
-                <tr><td>{t('compare.ram')}</td><td>{os.systemRequirements.ram || t('common.n_a')}</td></tr>
-                <tr><td>{t('compare.cpu')}</td><td>{os.systemRequirements.cpu || t('common.n_a')}</td></tr>
-                <tr><td>{t('compare.storage')}</td><td>{os.systemRequirements.storage || t('common.n_a')}</td></tr>
-              </>
-            )}
-          </tbody>
-        </table>
-      </div>
-
-      {/* ── Editions ── */}
-      {os.editions && os.editions.length > 0 && (
-        <div className="detail-section">
+        {/* Editions */}
+        <div className={`detail-section ${activeTab === 'editions' ? 'visible' : ''}`}>
           <h2 className="detail-section-title">{t('detail.editions')}</h2>
-          <div className="editions-list">
-            {os.editions.map(ed => (
-              <span key={ed} className="edition-badge">{ed}</span>
-            ))}
-          </div>
-        </div>
-      )}
+          {os.editions && os.editions.length > 0 ? (
+            <>
+              <div className="detail-editions">
+                {os.editions.map(ed => <span key={ed} className="detail-edition">{ed}</span>)}
+              </div>
 
-      {/* ── Predecessor / Successor ── */}
-      {(predecessorOS || successorOS) && (
-        <div className="detail-section">
-          <h2 className="detail-section-title">{t('detail.predecessor')} / {t('detail.successor')}</h2>
-          <div className="related-os-links">
-            {predecessorOS && (
-              <Link to={`/os/${predecessorOS.id}`} className="related-os-link">
-                <span className="related-label">← {t('detail.predecessor')}</span>
-                <span className="related-name">{predecessorOS.name}</span>
-              </Link>
-            )}
-            {successorOS && (
-              <Link to={`/os/${successorOS.id}`} className="related-os-link">
-                <span className="related-label">{t('detail.successor')} →</span>
-                <span className="related-name">{successorOS.name}</span>
-              </Link>
-            )}
-          </div>
+              {(predOS || succOS) && (
+                <div style={{ marginTop: 40 }}>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', marginBottom: 16, color: 'var(--t2)' }}>
+                    {t('detail.predecessor')} / {t('detail.successor')}
+                  </h3>
+                  <div className="detail-related">
+                    {predOS && (
+                      <Link to={`/os/${predOS.id}`} className="detail-related-card">
+                        <span className="detail-related-dir">← {t('detail.predecessor')}</span>
+                        <span className="detail-related-name">{predOS.name}</span>
+                      </Link>
+                    )}
+                    {succOS && (
+                      <Link to={`/os/${succOS.id}`} className="detail-related-card">
+                        <span className="detail-related-dir">{t('detail.successor')} →</span>
+                        <span className="detail-related-name">{succOS.name}</span>
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            <p style={{ color: 'var(--t3)' }}>{t('common.n_a')}</p>
+          )}
         </div>
-      )}
 
-      {/* ── Boot / Launch Experience ── */}
-      <div className="detail-section">
-        <h2 className="detail-section-title">{t('detail.boot')}</h2>
-        <div className={`boot-placeholder ${isOpenSource ? 'boot-placeholder-opensource' : ''}`}>
-          <Play size={40} style={{ color: 'var(--text-silver)' }} />
-          <p className="boot-text">
-            {isOpenSource ? t('detail.emulator_opensource') : t('detail.emulator_unavailable') + ' — ' + t('detail.emulator_description')}
-          </p>
+        {/* Boot */}
+        <div className={`detail-section ${activeTab === 'boot' ? 'visible' : ''}`}>
+          <h2 className="detail-section-title">{t('detail.boot')}</h2>
+          <div className={`detail-boot ${isOpen ? 'detail-boot-open' : ''}`}
+            style={isOpen ? {} : { background: `${heroColor}22` }}
+          >
+            <div className="boot-scanlines" />
+            <Play size={36} style={{ color: isOpen ? 'rgba(34,197,94,0.6)' : 'rgba(255,255,255,0.2)', position: 'relative', zIndex: 1 }} />
+            <p className="detail-boot-text">
+              {isOpen ? t('detail.emulator_opensource') : `${t('detail.emulator_unavailable')} — ${t('detail.emulator_description')}`}
+            </p>
+          </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

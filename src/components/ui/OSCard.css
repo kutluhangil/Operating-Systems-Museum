@@ -1,139 +1,152 @@
-/* OSCard — compact premium card used in the library grid */
+/* ── OS Card v2 ──────────────────────────────────────────── */
 .os-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 28px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-              background 0.35s ease,
-              box-shadow 0.35s ease,
-              border-color 0.35s ease;
+  background: var(--surf-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r4);
   overflow: hidden;
   height: 100%;
-}
-
-.os-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%);
-  pointer-events: none;
+  transition:
+    border-color var(--dur-med) var(--ease),
+    box-shadow var(--dur-med) var(--ease),
+    transform var(--dur-med) var(--ease);
 }
 
 .os-card:hover {
-  transform: translateY(-6px);
-  background: var(--bg-elevated);
-  border-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28);
+  border-color: var(--border-hi);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 0 0 1px var(--border-hi);
+  transform: translateY(-4px);
 }
 
-/* Favorite button */
-.os-card-fav {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  padding: 6px;
-  border-radius: 50%;
-  color: var(--text-silver);
-  transition: var(--transition-fast);
+/* Top color stripe from os.color */
+.os-card-stripe {
+  height: 3px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Body */
+.os-card-body {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  padding: 24px;
+  flex: 1;
 }
 
-.os-card-fav:hover { color: #f43f5e; }
-.os-card-fav.active { color: #f43f5e; }
-
-/* Header */
-.os-card-header {
+/* Header row */
+.os-card-top {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 14px;
   margin-bottom: 16px;
-  padding-right: 32px; /* room for fav btn */
 }
 
-.os-icon-wrapper {
-  width: 52px;
-  height: 52px;
-  min-width: 52px;
+.os-card-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: var(--surf-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 14px;
-  padding: 10px;
+  padding: 8px;
+  overflow: hidden;
 }
 
-.os-icon {
+.os-card-icon img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 }
 
-.os-title {
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin-bottom: 6px;
-  line-height: 1.2;
+.os-card-title-group {
+  flex: 1;
+  min-width: 0;
 }
 
-.os-meta {
-  font-size: 0.82rem;
-  color: var(--text-silver);
+.os-card-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.os-card-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
   align-items: center;
+  gap: 6px;
 }
 
-.os-category-badge {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 500;
+.os-card-year {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--t3);
 }
 
-.os-status-badge {
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 500;
+/* Fav button */
+.os-card-fav {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r1);
+  color: var(--t3);
+  transition: color var(--dur-fast), background var(--dur-fast);
+  border-radius: 50%;
 }
-.os-status-badge.active   { background: rgba(34,197,94,0.15); color: #22c55e; }
-.os-status-badge.disc     { background: rgba(239,68,68,0.12); color: #ef4444; }
-.os-status-badge.alpha    { background: rgba(249,115,22,0.15); color: #f97316; }
+.os-card-fav:hover { color: var(--rose); background: rgba(244,63,94,0.1); }
+.os-card-fav.fav   { color: var(--rose); }
 
 /* Description */
-.os-description {
-  color: var(--text-silver);
-  font-size: 0.92rem;
-  line-height: 1.55;
-  margin-bottom: 24px;
-  flex-grow: 1;
+.os-card-desc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--t2);
+  flex: 1;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin-bottom: 20px;
 }
 
-/* Actions */
-.os-card-actions {
+/* Footer */
+.os-card-footer {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 10px;
   margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
 }
 
-.os-card-actions .btn {
-  flex: 1;
-  font-size: 0.875rem;
-  padding: 9px 14px;
+.os-card-developer {
+  font-size: 0.8rem;
+  color: var(--t3);
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
+
+.os-card-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--accent-hi);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color var(--dur-fast);
+}
+.os-card-link:hover { color: #fff; }

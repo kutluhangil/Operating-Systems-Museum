@@ -71,17 +71,24 @@
   },
   "compare": {
     "title": "Compare Systems",
+    "description": "Select two operating systems to compare them side by side.",
     "subtitle": "Select up to three operating systems to compare side by side",
     "add_os": "Add System",
     "remove": "Remove",
     "placeholder": "Select an OS…",
+    "select_placeholder": "Choose an OS…",
+    "select_both": "Select two operating systems above to start comparing.",
     "no_selection": "Select operating systems above to begin comparing",
+    "system_a": "System A",
+    "system_b": "System B",
     "category": "Category",
     "kernel": "Kernel",
     "architecture": "Architecture",
     "filesystem": "File System",
+    "release_year": "Release Year",
     "release": "Released",
     "eol": "End of Support",
+    "end_of_life": "End of Life",
     "status": "Status",
     "ram": "Min RAM",
     "cpu": "CPU",
@@ -91,16 +98,21 @@
   },
   "gallery": {
     "title": "Screenshot Gallery",
-    "subtitle": "Visual history through desktop screenshots, boot screens, and login screens",
+    "subtitle": "Visual History",
+    "description": "A visual journey through landmark operating systems — their interfaces, boot screens, and design language across the decades.",
+    "view_details": "View Details",
     "filter_all": "All",
     "filter_desktop": "Desktops",
     "filter_boot": "Boot Screens"
   },
   "museum": {
     "title": "Museum Mode",
-    "subtitle": "An immersive journey through computing history",
+    "subtitle": "Interactive Emulation",
+    "description": "Experience open-source operating systems in your browser. Select a system below to explore it in an interactive environment.",
     "milestone_tag": "Milestone",
-    "explore_os": "Explore OS"
+    "explore_os": "Explore OS",
+    "keyboard_hint": "Keyboard navigation:",
+    "emulator_info": "Browser-based emulation coming soon. For now, explore the detailed information page."
   },
   "search": {
     "title": "Search the Museum",
@@ -113,15 +125,23 @@
     "title": "Your Favorites",
     "subtitle": "Operating systems you have bookmarked",
     "empty": "No favorites yet.",
-    "empty_desc": "Click the heart icon on any operating system to save it here."
+    "empty_title": "Nothing saved yet",
+    "empty_desc": "Click the heart icon on any operating system to save it here.",
+    "empty_cta": "Explore the Library",
+    "clear_all": "Clear All"
   },
   "about": {
     "title": "About the Museum",
     "subtitle": "A digital monument to computing history",
     "mission_title": "Our Mission",
     "mission": "The Operating Systems Museum exists to preserve, celebrate, and educate about the software that made the digital age possible. Every OS represented here shaped the computers, devices, and culture we know today.",
+    "features_title": "What You'll Find",
     "built_title": "Built With",
-    "open_source": "Open Source"
+    "tech_stack": "Technology Stack",
+    "open_source": "Open Source",
+    "cta_title": "Ready to explore?",
+    "cta_desc": "Dive into the complete collection of landmark operating systems and trace the evolution of computing.",
+    "cta_explore": "Explore the Library"
   },
   "common": {
     "active": "Active",

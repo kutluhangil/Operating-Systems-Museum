@@ -8,7 +8,7 @@ import OSDetail from './pages/OSDetail';
 import Timeline from './pages/Timeline';
 import Compare from './pages/Compare';
 import Gallery from './pages/Gallery';
-import Museum from './pages/Museum';
+import Museum from './pages/MuseumMode';
 import About from './pages/About';
 import Favorites from './pages/Favorites';
 

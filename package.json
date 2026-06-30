@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/syne": "^5.2.7",
     "clsx": "^2.1.1",
     "framer-motion": "^12.42.0",
     "i18next": "^26.3.4",

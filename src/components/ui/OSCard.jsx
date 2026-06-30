@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Info, Heart } from 'lucide-react';
+import { Heart, ArrowUpRight, Building2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useFavorites } from '../../context/FavoritesContext';
 import './OSCard.css';
 
-const statusClass = (s) => {
-  if (!s) return '';
+const statusVariant = (s = '') => {
   const l = s.toLowerCase();
-  if (l.includes('active')) return 'active';
-  if (l.includes('alpha') || l.includes('beta')) return 'alpha';
-  return 'disc';
+  if (l.includes('active')) return 'badge-active';
+  if (l.includes('alpha') || l.includes('beta')) return 'badge-alpha';
+  return 'badge-disc';
 };
 
 const OSCard = ({ os }) => {
@@ -20,41 +19,50 @@ const OSCard = ({ os }) => {
 
   return (
     <div className="os-card">
-      {/* Favorite */}
-      <button
-        className={`os-card-fav ${fav ? 'active' : ''}`}
-        onClick={() => toggle(os.id)}
-        aria-label={fav ? t('os_card.remove_favorite') : t('os_card.add_favorite')}
-      >
-        <Heart size={18} fill={fav ? 'currentColor' : 'none'} />
-      </button>
+      {/* Color stripe */}
+      <div className="os-card-stripe" style={{ background: os.color || 'var(--accent)' }} />
 
-      {/* Header */}
-      <div className="os-card-header">
-        <div className="os-icon-wrapper">
-          {os.icon
-            ? <img src={os.icon} alt={`${os.name} logo`} className="os-icon" />
-            : <span style={{ fontSize: 24 }}>💻</span>
-          }
-        </div>
-        <div style={{ flex: 1 }}>
-          <h3 className="os-title">{os.name}</h3>
-          <div className="os-meta">
-            <span>{os.releaseYear}</span>
-            <span>&bull;</span>
-            <span>{os.developer}</span>
-            <span className="os-category-badge">{os.category}</span>
-            <span className={`os-status-badge ${statusClass(os.status)}`}>{os.status}</span>
+      <div className="os-card-body">
+        {/* Top row */}
+        <div className="os-card-top">
+          <div className="os-card-icon">
+            {os.icon
+              ? <img src={os.icon} alt={os.name} loading="lazy" />
+              : <span style={{ fontSize: 22 }}>💾</span>
+            }
           </div>
+
+          <div className="os-card-title-group">
+            <h3 className="os-card-name">{os.name}</h3>
+            <div className="os-card-meta">
+              <span className="os-card-year mono">{os.releaseYear}</span>
+              <span className={`badge ${statusVariant(os.status)}`}>{os.status}</span>
+              <span className="badge badge-neutral">{os.category}</span>
+            </div>
+          </div>
+
+          <button
+            className={`os-card-fav${fav ? ' fav' : ''}`}
+            onClick={() => toggle(os.id)}
+            aria-label={fav ? t('os_card.remove_favorite') : t('os_card.add_favorite')}
+          >
+            <Heart size={16} fill={fav ? 'currentColor' : 'none'} />
+          </button>
         </div>
-      </div>
 
-      <p className="os-description">{os.description}</p>
+        {/* Description */}
+        <p className="os-card-desc">{os.description}</p>
 
-      <div className="os-card-actions">
-        <Link to={`/os/${os.id}`} className="btn btn-secondary">
-          <Info size={15} /> {t('os_card.learn_more')}
-        </Link>
+        {/* Footer */}
+        <div className="os-card-footer">
+          <span className="os-card-developer">
+            <Building2 size={12} />
+            {os.developer}
+          </span>
+          <Link to={`/os/${os.id}`} className="os-card-link">
+            {t('os_card.learn_more')} <ArrowUpRight size={13} />
+          </Link>
+        </div>
       </div>
     </div>
   );

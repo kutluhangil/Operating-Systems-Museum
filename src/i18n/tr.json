@@ -71,17 +71,24 @@
   },
   "compare": {
     "title": "Sistemleri Karşılaştır",
+    "description": "İki işletim sistemini yan yana karşılaştırmak için seçin.",
     "subtitle": "Yan yana karşılaştırmak için üç adede kadar işletim sistemi seçin",
     "add_os": "Sistem Ekle",
     "remove": "Kaldır",
     "placeholder": "Bir işletim sistemi seçin…",
+    "select_placeholder": "Bir işletim sistemi seçin…",
+    "select_both": "Karşılaştırmaya başlamak için yukarıdan iki işletim sistemi seçin.",
     "no_selection": "Karşılaştırmaya başlamak için yukarıdan işletim sistemi seçin",
+    "system_a": "Sistem A",
+    "system_b": "Sistem B",
     "category": "Kategori",
     "kernel": "Çekirdek",
     "architecture": "Mimari",
     "filesystem": "Dosya Sistemi",
+    "release_year": "Yayınlanma Yılı",
     "release": "Yayın Tarihi",
     "eol": "Destek Sonu",
+    "end_of_life": "Destek Bitiş",
     "status": "Durum",
     "ram": "Min RAM",
     "cpu": "İşlemci",
@@ -91,16 +98,21 @@
   },
   "gallery": {
     "title": "Ekran Görüntüsü Galerisi",
-    "subtitle": "Masaüstü ekran görüntüleri, açılış ekranları ve giriş ekranları aracılığıyla görsel tarih",
+    "subtitle": "Görsel Tarih",
+    "description": "On yıllar boyunca kilometre taşı işletim sistemlerinde —arayüzlerinde, açılış ekranlarında ve tasarım dillerinde— görsel bir yolculuk.",
+    "view_details": "Ayrıntıları Görüntüle",
     "filter_all": "Tümü",
     "filter_desktop": "Masaüstüler",
     "filter_boot": "Açılış Ekranları"
   },
   "museum": {
     "title": "Müze Modu",
-    "subtitle": "Bilgisayar tarihi boyunca sürükleyici bir yolculuk",
+    "subtitle": "Etkileşimli Emülasyon",
+    "description": "Tarayıcınızda açık kaynaklı işletim sistemlerini deneyimleyin. Etkileşimli bir ortamda keşfetmek için aşağıdan bir sistem seçin.",
     "milestone_tag": "Kilometre Taşı",
-    "explore_os": "İşletim Sistemini Keşfet"
+    "explore_os": "İşletim Sistemini Keşfet",
+    "keyboard_hint": "Klavye navigasyonu:",
+    "emulator_info": "Tarayıcı tabanlı emülasyon yakında geliyor. Şimdilik ayrıntılı bilgi sayfasını keşfedin."
   },
   "search": {
     "title": "Müzede Ara",
@@ -113,15 +125,23 @@
     "title": "Favorileriniz",
     "subtitle": "Yer işareti koyduğunuz işletim sistemleri",
     "empty": "Henüz favori yok.",
-    "empty_desc": "Buraya kaydetmek için herhangi bir işletim sistemindeki kalp simgesine tıklayın."
+    "empty_title": "Henüz bir şey kaydedilmedi",
+    "empty_desc": "Buraya kaydetmek için herhangi bir işletim sistemindeki kalp simgesine tıklayın.",
+    "empty_cta": "Kütüphaneyi Keşfet",
+    "clear_all": "Tümünü Temizle"
   },
   "about": {
     "title": "Müze Hakkında",
     "subtitle": "Bilgisayar tarihine dijital bir anıt",
     "mission_title": "Misyonumuz",
     "mission": "İşletim Sistemleri Müzesi, dijital çağı mümkün kılan yazılımı korumak, kutlamak ve eğitim vermek için var olmaktadır. Burada temsil edilen her işletim sistemi, bugün bildiğimiz bilgisayarları, cihazları ve kültürü şekillendirdi.",
+    "features_title": "Neler Bulacaksınız",
     "built_title": "Yapılış",
-    "open_source": "Açık Kaynak"
+    "tech_stack": "Teknoloji Yığını",
+    "open_source": "Açık Kaynak",
+    "cta_title": "Keşfetmeye hazır mısınız?",
+    "cta_desc": "Kilometre taşı işletim sistemlerinin eksiksiz koleksiyonuna dalın ve bilgisayar dünyasının evrimini izleyin.",
+    "cta_explore": "Kütüphaneyi Keşfet"
   },
   "common": {
     "active": "Aktif",
