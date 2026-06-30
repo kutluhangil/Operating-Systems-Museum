@@ -1,5 +1,5 @@
 .timeline-page {
-  padding: 48px 0;
+  padding: calc(var(--navbar-h) + 48px) 0 var(--s7);
 }
 
 .timeline-header {

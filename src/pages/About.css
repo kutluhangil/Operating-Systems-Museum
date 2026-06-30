@@ -1,5 +1,5 @@
 .about-page {
-  padding: 48px 0 80px;
+  padding: calc(var(--navbar-h) + 48px) 0 80px;
 }
 
 .about-hero {

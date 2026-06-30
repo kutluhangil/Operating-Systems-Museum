@@ -17,58 +17,61 @@ const OSCard = ({ os }) => {
   const { t } = useTranslation();
   const { toggle, isFavorite } = useFavorites();
   const fav = isFavorite(os.id);
+  const swatchColor = os.color || '#2c2c2e';
 
   return (
-    <motion.div 
-      className="os-card card"
-      initial={{ opacity: 0, y: 30 }}
+    <motion.div
+      className="os-card"
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, type: 'spring', bounce: 0.4 }}
-      whileHover={{ y: -4 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.5, type: 'spring', bounce: 0.3 }}
     >
-      {/* Color stripe */}
-      <div className="os-card-stripe" style={{ background: os.color || 'var(--accent)' }} />
+      {/* Color swatch top area */}
+      <div className="os-card-swatch">
+        <div
+          className="os-card-swatch-bg"
+          style={{
+            background: `radial-gradient(ellipse at 60% 40%, ${swatchColor} 0%, transparent 80%)`,
+          }}
+        />
+      </div>
 
+      {/* Floating icon */}
+      <div className="os-card-icon-wrap">
+        {os.icon
+          ? <img src={os.icon} alt={os.name} loading="lazy" />
+          : <span style={{ fontSize: 22 }}>💾</span>
+        }
+      </div>
+
+      {/* Body */}
       <div className="os-card-body">
-        {/* Top row */}
-        <div className="os-card-top">
-          <div className="os-card-icon">
-            {os.icon
-              ? <img src={os.icon} alt={os.name} loading="lazy" />
-              : <span style={{ fontSize: 22 }}>💾</span>
-            }
+        <div className="os-card-meta-row">
+          <div className="os-card-badges">
+            <span className={`badge ${statusVariant(os.status)}`}>{os.status}</span>
+            <span className="badge badge-neutral">{os.category}</span>
+            <span className="badge badge-neutral mono">{os.releaseYear}</span>
           </div>
-
-          <div className="os-card-title-group">
-            <h3 className="os-card-name">{os.name}</h3>
-            <div className="os-card-meta">
-              <span className="os-card-year mono">{os.releaseYear}</span>
-              <span className={`badge ${statusVariant(os.status)}`}>{os.status}</span>
-              <span className="badge badge-neutral">{os.category}</span>
-            </div>
-          </div>
-
           <button
             className={`os-card-fav${fav ? ' fav' : ''}`}
-            onClick={() => toggle(os.id)}
+            onClick={e => { e.preventDefault(); toggle(os.id); }}
             aria-label={fav ? t('os_card.remove_favorite') : t('os_card.add_favorite')}
           >
-            <Heart size={16} fill={fav ? 'currentColor' : 'none'} />
+            <Heart size={14} fill={fav ? 'currentColor' : 'none'} />
           </button>
         </div>
 
-        {/* Description */}
+        <h3 className="os-card-name">{os.name}</h3>
         <p className="os-card-desc">{os.description}</p>
 
-        {/* Footer */}
         <div className="os-card-footer">
           <span className="os-card-developer">
-            <Building2 size={12} />
+            <Building2 size={11} />
             {os.developer}
           </span>
-          <Link to={`/os/${os.id}`} className="os-card-link">
-            {t('os_card.learn_more')} <ArrowUpRight size={13} />
+          <Link to={`/os/${os.id}?boot=true`} className="os-card-link">
+            {t('os_card.learn_more')} <ArrowUpRight size={12} />
           </Link>
         </div>
       </div>

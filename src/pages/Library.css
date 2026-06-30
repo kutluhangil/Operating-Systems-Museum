@@ -1,39 +1,39 @@
-/* ── Library Page ────────────────────────────────────────── */
+/* ── Library Page ─────────────────────────────────────────────── */
+
 .library-page {
-  padding: var(--s6) 0 var(--s7);
+  padding: calc(var(--navbar-h) + var(--s5)) 0 var(--s7);
 }
 
-/* Page header */
+
+/* ── Header ───────────────────────────────────────────────────── */
 .lib-header {
-  margin-bottom: var(--s6);
+  margin-bottom: var(--s5);
   max-width: 640px;
 }
 
 .lib-eyebrow {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  color: var(--accent-hi);
+  color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 16px;
+  letter-spacing: 0.08em;
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-bottom: 16px;
 }
-
 .lib-eyebrow::before {
   content: '';
+  display: block;
   width: 20px;
-  height: 2px;
+  height: 1px;
   background: var(--accent);
-  border-radius: 1px;
 }
 
 .lib-title {
-  font-family: var(--font-display);
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 800;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
   line-height: 1;
   margin-bottom: 16px;
 }
@@ -44,21 +44,23 @@
   line-height: 1.6;
 }
 
-/* Controls bar */
+/* ── Controls Bar ─────────────────────────────────────────────── */
 .lib-controls {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: var(--s5);
   flex-wrap: wrap;
+  margin-bottom: 32px;
+  padding: 16px;
+  background: var(--surf-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r3);
 }
 
-/* Search */
 .lib-search-wrap {
   position: relative;
   flex: 1;
-  min-width: 220px;
-  max-width: 400px;
+  min-width: 180px;
 }
 
 .lib-search-icon {
@@ -72,79 +74,62 @@
 
 .lib-search {
   width: 100%;
-  background: var(--surf-2);
+  background: var(--surf-3);
   border: 1px solid var(--border);
   border-radius: var(--r2);
-  color: var(--t1);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
   padding: 10px 14px 10px 40px;
-  transition: border-color var(--dur-fast);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--t1);
   outline: none;
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
 }
-
 .lib-search:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+  box-shadow: 0 0 0 3px var(--accent-dim);
 }
+.lib-search::placeholder { color: var(--t3); }
 
-/* Filter tabs */
 .lib-filter-tabs {
   display: flex;
-  gap: 6px;
+  gap: 4px;
   flex-wrap: wrap;
-}
-
-.lib-tab {
-  padding: 8px 16px;
-  border-radius: 100px;
-  font-size: 0.82rem;
-  font-weight: 500;
+  background: var(--surf-3);
   border: 1px solid var(--border);
-  background: var(--surf-2);
-  color: var(--t2);
-  cursor: pointer;
-  transition: all var(--dur-fast) var(--ease);
-  white-space: nowrap;
-}
-
-.lib-tab:hover { background: var(--surf-3); color: var(--t1); border-color: var(--border-hi); }
-
-.lib-tab.active {
-  background: var(--accent);
-  color: #fff;
-  border-color: transparent;
-  box-shadow: 0 0 16px var(--glow-a);
-}
-
-/* Sort */
-.lib-sort {
-  background: var(--surf-2);
-  border: 1px solid var(--border);
-  color: var(--t2);
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  padding: 9px 14px;
   border-radius: var(--r2);
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  appearance: none;
+  padding: 4px;
 }
 
-/* Count */
+.lib-sort {
+  background: var(--surf-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 8px 14px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--t1);
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--dur-fast);
+}
+.lib-sort:focus { border-color: var(--accent); }
+
 .lib-count {
-  font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--t3);
-  margin-left: auto;
   white-space: nowrap;
+  padding: 0 4px;
 }
 
-/* Empty */
+/* ── Empty State ──────────────────────────────────────────────── */
 .lib-empty {
-  padding: 80px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s7) var(--s4);
+  color: var(--t2);
   text-align: center;
-  color: var(--t3);
-  font-size: 0.95rem;
+  font-size: 1rem;
+  min-height: 300px;
 }

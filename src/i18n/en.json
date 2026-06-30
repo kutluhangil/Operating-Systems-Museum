@@ -22,6 +22,11 @@
     "featured_title": "Featured Systems",
     "featured_subtitle": "Landmark operating systems that shaped computing history"
   },
+  "timeline": {
+    "title": "The OS Timeline",
+    "subtitle": "Evolution Tree",
+    "description": "A chronological journey through every major operating system, from the earliest terminals to the systems powering today's world."
+  },
   "os_card": {
     "learn_more": "Learn More",
     "launch": "Launch",

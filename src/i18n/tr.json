@@ -22,7 +22,13 @@
     "featured_title": "Öne Çıkan Sistemler",
     "featured_subtitle": "Bilgisayar tarihini şekillendiren kilometre taşı işletim sistemleri"
   },
+  "timeline": {
+    "title": "İşletim Sistemi Zaman Tüneli",
+    "subtitle": "Evrim Ağacı",
+    "description": "İlk terminallerden günümüzün sistemlerine kadar tüm önemli işletim sistemlerinin kronolojik yolculuğu."
+  },
   "os_card": {
+
     "learn_more": "Daha Fazla Bilgi",
     "launch": "Başlat",
     "compare": "Karşılaştır",

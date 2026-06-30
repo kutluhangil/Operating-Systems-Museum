@@ -10,17 +10,28 @@ const KONAMI_CODE = [
 
 export function useKonamiCode() {
   const [success, setSuccess] = useState(false);
+  const [dosSuccess, setDosSuccess] = useState(false);
   const [inputSequence, setInputSequence] = useState([]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
+      // Don't capture inputs if user is typing in a form field
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
+
       const key = e.key;
       
       setInputSequence(prev => {
-        const nextSequence = [...prev, key].slice(-KONAMI_CODE.length);
+        // Keep a reasonable buffer length (max length of our longest code)
+        const nextSequence = [...prev, key].slice(-10);
         
-        if (nextSequence.join('').toLowerCase() === KONAMI_CODE.join('').toLowerCase()) {
+        const seqStr = nextSequence.join('').toLowerCase();
+        
+        if (seqStr.includes(KONAMI_CODE.join('').toLowerCase())) {
           setSuccess(true);
+        }
+        
+        if (seqStr.includes('dos')) {
+          setDosSuccess(true);
         }
         
         return nextSequence;
@@ -36,5 +47,10 @@ export function useKonamiCode() {
     setInputSequence([]);
   };
 
-  return { success, reset };
+  const resetDos = () => {
+    setDosSuccess(false);
+    setInputSequence([]);
+  };
+
+  return { success, dosSuccess, reset, resetDos };
 }

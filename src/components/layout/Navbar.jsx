@@ -4,12 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { Search, Sun, Moon, Heart, Layers, Volume2, VolumeX, Terminal } from 'lucide-react';
 import SearchOverlay from '../ui/SearchOverlay';
 import { soundManager } from '../../utils/SoundManager';
+import { useTheme } from '../../context/ThemeContext';
 import './Navbar.css';
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const { theme, setTheme, themes } = useTheme();
   const [searchOpen, setSearchOpen] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(soundManager.isEnabled());
 
@@ -31,11 +32,9 @@ const Navbar = () => {
   }, []);
 
   const toggleTheme = () => {
-    const themeOrder = ['dark', 'light', 'retro'];
-    const currentIndex = themeOrder.indexOf(theme);
-    const next = themeOrder[(currentIndex + 1) % themeOrder.length];
+    const currentIndex = themes.indexOf(theme);
+    const next = themes[(currentIndex + 1) % themes.length];
     setTheme(next);
-    document.documentElement.setAttribute('data-theme', next);
   };
 
   const toggleSound = () => {

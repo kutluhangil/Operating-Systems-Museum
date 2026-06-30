@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Tag, Cpu, HardDrive, Globe, Heart, Play, Building2 } from 'lucide-react';
 import { getOSById } from '../data/osData';
@@ -23,7 +23,17 @@ const OSDetail = () => {
   const { toggle, isFavorite } = useFavorites();
   const [activeTab, setActiveTab] = useState('overview');
   const [showSimulator, setShowSimulator] = useState(false);
+  const location = useLocation();
   const os = getOSById(id);
+
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('boot') === 'true') {
+      setShowSimulator(true);
+      // Remove it from URL so refreshing doesn't trigger it again
+      window.history.replaceState({}, '', `/os/${id}`);
+    }
+  }, [location.search, id]);
 
   if (!os) {
     return (

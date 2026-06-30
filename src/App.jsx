@@ -12,17 +12,21 @@ import Museum from './pages/MuseumMode';
 import Museum3D from './pages/Museum3D';
 import About from './pages/About';
 import Favorites from './pages/Favorites';
+import { ThemeProvider } from './context/ThemeContext';
 import { useKonamiCode } from './hooks/useKonamiCode';
 import BSOD from './components/ui/BSOD';
+import TerminalOverlay from './components/ui/TerminalOverlay';
 
 function App() {
-  const { success, reset } = useKonamiCode();
+  const { success, dosSuccess, reset, resetDos } = useKonamiCode();
 
   return (
-    <FavoritesProvider>
-      <Router>
-        {success && <BSOD onClose={reset} />}
-        <Layout>
+    <ThemeProvider>
+      <FavoritesProvider>
+        <Router>
+          {success && <BSOD onClose={reset} />}
+          {dosSuccess && <TerminalOverlay onClose={resetDos} />}
+          <Layout>
           <Routes>
             <Route path="/"          element={<Home />} />
             <Route path="/timeline"  element={<Timeline />} />
@@ -38,6 +42,7 @@ function App() {
         </Layout>
       </Router>
     </FavoritesProvider>
+  </ThemeProvider>
   );
 }
 
