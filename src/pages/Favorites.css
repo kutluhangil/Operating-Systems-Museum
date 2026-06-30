@@ -1,0 +1,24 @@
+.favorites-page {
+  padding: 48px 0 80px;
+}
+
+.favorites-empty {
+  text-align: center;
+  padding: 100px 24px;
+}
+
+.favorites-empty-icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+  opacity: 0.3;
+}
+
+.favorites-empty h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.favorites-empty p {
+  color: var(--text-silver);
+  font-size: 1rem;
+}

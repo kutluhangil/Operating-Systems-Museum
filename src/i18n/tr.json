@@ -7,18 +7,130 @@
     "gallery": "Galeri",
     "museum": "Müze Modu",
     "about": "Hakkında",
-    "search": "Ara"
+    "search": "Ara",
+    "favorites": "Favoriler"
   },
   "home": {
     "title": "İşletim Sistemleri Müzesi",
     "subtitle": "İlk kişisel bilgisayarlardan modern platformlara kadar işletim sistemlerinin evrimini etkileyici bir dijital müze deneyimiyle keşfedin.",
     "explore_timeline": "Zaman Çizelgesini Keşfet",
     "browse_systems": "Sistemlere Göz At",
-    "launch_experience": "Deneyimi Başlat"
+    "launch_experience": "Deneyimi Başlat",
+    "stats_os": "İşletim Sistemi",
+    "stats_decades": "Yıllık Tarih",
+    "stats_developers": "Büyük Geliştirici",
+    "featured_title": "Öne Çıkan Sistemler",
+    "featured_subtitle": "Bilgisayar tarihini şekillendiren kilometre taşı işletim sistemleri"
   },
   "os_card": {
     "learn_more": "Daha Fazla Bilgi",
     "launch": "Başlat",
-    "compare": "Karşılaştır"
+    "compare": "Karşılaştır",
+    "add_favorite": "Favorilere Ekle",
+    "remove_favorite": "Favorilerden Çıkar"
+  },
+  "library": {
+    "title": "İşletim Sistemleri",
+    "subtitle": "Kilometre taşı işletim sistemlerinin kapsamlı kataloğu",
+    "search_placeholder": "Ad, geliştirici, çekirdek ile arayın…",
+    "filter_all": "Tümü",
+    "sort_by_year": "Yıl (En Yeni)",
+    "sort_by_year_asc": "Yıl (En Eski)",
+    "sort_by_name": "Ad A–Z",
+    "sort_by_popularity": "Popülerlik",
+    "no_results": "İşletim sistemi bulunamadı.",
+    "clear_search": "Aramayı Temizle"
+  },
+  "detail": {
+    "overview": "Genel Bakış",
+    "history": "Tarihçe",
+    "facts": "İlginç Gerçekler",
+    "specs": "Teknik Özellikler",
+    "editions": "Sürümler",
+    "boot": "Açılış Deneyimi",
+    "launch": "Başlat",
+    "back": "Kütüphaneye Dön",
+    "release_year": "Yayınlanma Yılı",
+    "eol": "Destek Bitiş",
+    "developer": "Geliştirici",
+    "kernel": "Çekirdek",
+    "architecture": "Mimari",
+    "filesystem": "Dosya Sistemi",
+    "browser": "Varsayılan Tarayıcı",
+    "status": "Durum",
+    "predecessor": "Önceki Sürüm",
+    "successor": "Sonraki Sürüm",
+    "ram": "RAM",
+    "cpu": "İşlemci",
+    "storage": "Depolama",
+    "emulator_unavailable": "Emülatör Mevcut Değil",
+    "emulator_description": "Bu işletim sistemi tescillidir. Başlatmak için, gelecekteki bir güncellemede emülatör desteği etkinleştirildiğinde kendi yasal disk görüntünüzü sağlayın.",
+    "emulator_opensource": "Bu açık kaynaklı işletim sistemi, tarayıcı tabanlı emülasyon ile uyumludur. Tam emülatör desteği yakında geliyor.",
+    "not_found": "İşletim Sistemi Bulunamadı",
+    "not_found_desc": "İstediğiniz işletim sistemi müze veritabanında bulunamadı."
+  },
+  "compare": {
+    "title": "Sistemleri Karşılaştır",
+    "subtitle": "Yan yana karşılaştırmak için üç adede kadar işletim sistemi seçin",
+    "add_os": "Sistem Ekle",
+    "remove": "Kaldır",
+    "placeholder": "Bir işletim sistemi seçin…",
+    "no_selection": "Karşılaştırmaya başlamak için yukarıdan işletim sistemi seçin",
+    "category": "Kategori",
+    "kernel": "Çekirdek",
+    "architecture": "Mimari",
+    "filesystem": "Dosya Sistemi",
+    "release": "Yayın Tarihi",
+    "eol": "Destek Sonu",
+    "status": "Durum",
+    "ram": "Min RAM",
+    "cpu": "İşlemci",
+    "storage": "Min Depolama",
+    "browser": "Varsayılan Tarayıcı",
+    "developer": "Geliştirici"
+  },
+  "gallery": {
+    "title": "Ekran Görüntüsü Galerisi",
+    "subtitle": "Masaüstü ekran görüntüleri, açılış ekranları ve giriş ekranları aracılığıyla görsel tarih",
+    "filter_all": "Tümü",
+    "filter_desktop": "Masaüstüler",
+    "filter_boot": "Açılış Ekranları"
+  },
+  "museum": {
+    "title": "Müze Modu",
+    "subtitle": "Bilgisayar tarihi boyunca sürükleyici bir yolculuk",
+    "milestone_tag": "Kilometre Taşı",
+    "explore_os": "İşletim Sistemini Keşfet"
+  },
+  "search": {
+    "title": "Müzede Ara",
+    "placeholder": "İşletim sistemleri arayın…",
+    "no_results": "Sonuç bulunamadı:",
+    "results": "Sonuç",
+    "press_esc": "Kapatmak için ESC'ye basın"
+  },
+  "favorites": {
+    "title": "Favorileriniz",
+    "subtitle": "Yer işareti koyduğunuz işletim sistemleri",
+    "empty": "Henüz favori yok.",
+    "empty_desc": "Buraya kaydetmek için herhangi bir işletim sistemindeki kalp simgesine tıklayın."
+  },
+  "about": {
+    "title": "Müze Hakkında",
+    "subtitle": "Bilgisayar tarihine dijital bir anıt",
+    "mission_title": "Misyonumuz",
+    "mission": "İşletim Sistemleri Müzesi, dijital çağı mümkün kılan yazılımı korumak, kutlamak ve eğitim vermek için var olmaktadır. Burada temsil edilen her işletim sistemi, bugün bildiğimiz bilgisayarları, cihazları ve kültürü şekillendirdi.",
+    "built_title": "Yapılış",
+    "open_source": "Açık Kaynak"
+  },
+  "common": {
+    "active": "Aktif",
+    "discontinued": "Durdurulmuş",
+    "alpha": "Alfa",
+    "loading": "Yükleniyor…",
+    "close": "Kapat",
+    "yes": "Evet",
+    "no": "Hayır",
+    "n_a": "Bilinmiyor"
   }
 }

@@ -86,3 +86,60 @@ button {
   margin: 0 auto;
   padding: 0 24px;
 }
+
+/* Button system */
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--text-soft-white);
+  color: var(--bg-deep-black);
+}
+
+.btn-primary:hover { background: var(--text-silver); }
+
+.btn-secondary {
+  background: var(--glass-bg);
+  color: var(--text-soft-white);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+}
+
+.btn-secondary:hover { background: var(--bg-elevated); }
+
+/* Shared page typography */
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+  background: linear-gradient(to right, var(--text-soft-white), var(--text-silver));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-subtitle {
+  color: var(--text-silver);
+  font-size: 1.05rem;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Shared OS grid */
+.os-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
