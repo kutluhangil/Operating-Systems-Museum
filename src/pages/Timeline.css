@@ -1,0 +1,112 @@
+.timeline-page {
+  padding: 48px 0;
+}
+
+.timeline-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.timeline-title {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  background: linear-gradient(to right, var(--text-soft-white), var(--text-silver));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--glass-border);
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.timeline-content {
+  width: 45%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  padding: 24px;
+  border-radius: 16px;
+  transition: var(--transition-smooth);
+}
+
+.timeline-content:hover {
+  transform: translateY(-4px);
+  background: var(--bg-elevated);
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: auto;
+}
+
+.timeline-year {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-windows-blue);
+  margin-bottom: 8px;
+}
+
+.timeline-os-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.timeline-os-desc {
+  color: var(--text-silver);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.timeline-node {
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: var(--text-soft-white);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--bg-deep-black), 0 0 0 6px var(--glass-border);
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 24px;
+  }
+  
+  .timeline-node {
+    left: 24px;
+  }
+  
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .timeline-content {
+    width: calc(100% - 64px);
+    margin-left: 64px !important;
+  }
+}

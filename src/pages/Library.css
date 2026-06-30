@@ -1,0 +1,48 @@
+.library-page {
+  padding: 48px 0;
+}
+
+.library-header {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.library-title {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  background: linear-gradient(to right, var(--text-soft-white), var(--text-silver));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.library-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-soft-white);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent-soft-cyan);
+}
+
+.os-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}

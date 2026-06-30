@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "timeline": "Zaman Çizelgesi",
+    "os_library": "İşletim Sistemleri",
+    "compare": "Karşılaştır",
+    "gallery": "Galeri",
+    "museum": "Müze Modu",
+    "about": "Hakkında",
+    "search": "Ara"
+  },
+  "home": {
+    "title": "İşletim Sistemleri Müzesi",
+    "subtitle": "İlk kişisel bilgisayarlardan modern platformlara kadar işletim sistemlerinin evrimini etkileyici bir dijital müze deneyimiyle keşfedin.",
+    "explore_timeline": "Zaman Çizelgesini Keşfet",
+    "browse_systems": "Sistemlere Göz At",
+    "launch_experience": "Deneyimi Başlat"
+  },
+  "os_card": {
+    "learn_more": "Daha Fazla Bilgi",
+    "launch": "Başlat",
+    "compare": "Karşılaştır"
+  }
+}

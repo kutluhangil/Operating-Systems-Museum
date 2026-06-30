@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Home",
+    "timeline": "Timeline",
+    "os_library": "Operating Systems",
+    "compare": "Compare",
+    "gallery": "Gallery",
+    "museum": "Museum Mode",
+    "about": "About",
+    "search": "Search"
+  },
+  "home": {
+    "title": "Operating Systems Museum",
+    "subtitle": "Explore the evolution of operating systems from the earliest personal computers to modern platforms through an immersive digital museum experience.",
+    "explore_timeline": "Explore Timeline",
+    "browse_systems": "Browse Systems",
+    "launch_experience": "Launch Experience"
+  },
+  "os_card": {
+    "learn_more": "Learn More",
+    "launch": "Launch",
+    "compare": "Compare"
+  }
+}
