@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Search, Sun, Moon, Heart, Layers } from 'lucide-react';
+import { Search, Sun, Moon, Heart, Layers, Volume2, VolumeX, Terminal } from 'lucide-react';
 import SearchOverlay from '../ui/SearchOverlay';
+import { soundManager } from '../../utils/SoundManager';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -10,6 +11,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState('dark');
   const [searchOpen, setSearchOpen] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(soundManager.isEnabled());
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -29,9 +31,16 @@ const Navbar = () => {
   }, []);
 
   const toggleTheme = () => {
-    const next = theme === 'dark' ? 'light' : 'dark';
+    const themeOrder = ['dark', 'light', 'retro'];
+    const currentIndex = themeOrder.indexOf(theme);
+    const next = themeOrder[(currentIndex + 1) % themeOrder.length];
     setTheme(next);
     document.documentElement.setAttribute('data-theme', next);
+  };
+
+  const toggleSound = () => {
+    const isNowEnabled = soundManager.toggle();
+    setSoundEnabled(isNowEnabled);
   };
 
   const toggleLang = () => i18n.changeLanguage(i18n.language === 'en' ? 'tr' : 'en');
@@ -77,8 +86,14 @@ const Navbar = () => {
               <Heart size={16} />
             </NavLink>
 
+            <button className="btn-icon" onClick={toggleSound} aria-label="Toggle sound">
+              {soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
+            </button>
+
             <button className="btn-icon" onClick={toggleTheme} aria-label="Toggle theme">
-              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+              {theme === 'dark' && <Sun size={16} />}
+              {theme === 'light' && <Terminal size={16} />}
+              {theme === 'retro' && <Moon size={16} />}
             </button>
 
             <button className="nav-lang" onClick={toggleLang}>

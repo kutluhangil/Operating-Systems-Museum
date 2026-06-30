@@ -103,6 +103,51 @@
   --glow-a:    rgba(99, 102, 241, 0.15);
 }
 
+/* Retro mode overrides */
+[data-theme="retro"] {
+  --ink:       #000000;
+  --surf-1:    #000500;
+  --surf-2:    #001100;
+  --surf-3:    #001a00;
+  --surf-4:    #002200;
+  --border:    rgba(0, 255, 0, 0.2);
+  --border-hi: rgba(0, 255, 0, 0.5);
+  --border-glass: rgba(0, 255, 0, 0.1);
+  --t1:        #00ff00;
+  --t2:        #00cc00;
+  --t3:        #009900;
+  --glow-a:    rgba(0, 255, 0, 0.4);
+  --accent:    #00ff00;
+  --accent-hi: #33ff33;
+  --font-body: var(--font-mono);
+  --font-display: var(--font-mono);
+}
+
+[data-theme="retro"] body::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 999;
+  background-size: 100% 4px, 3px 100%;
+  pointer-events: none;
+}
+
+[data-theme="retro"] body {
+  animation: crtFlicker 0.15s infinite;
+  text-shadow: 0 0 5px rgba(0,255,0,0.5);
+}
+
+@keyframes crtFlicker {
+  0% { opacity: 0.98; }
+  50% { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
 /* ── Reset ────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 

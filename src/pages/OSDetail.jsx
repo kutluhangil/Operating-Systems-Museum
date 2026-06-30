@@ -5,6 +5,7 @@ import { ArrowLeft, Calendar, Tag, Cpu, HardDrive, Globe, Heart, Play, Building2
 import { getOSById } from '../data/osData';
 import { useFavorites } from '../context/FavoritesContext';
 import { useTranslation } from 'react-i18next';
+import BootSimulator from '../components/ui/BootSimulator';
 import './OSDetail.css';
 
 const OPEN_SOURCE = ['ubuntu', 'debian', 'fedora', 'reactos', 'haiku', 'freedos'];
@@ -21,6 +22,7 @@ const OSDetail = () => {
   const { t } = useTranslation();
   const { toggle, isFavorite } = useFavorites();
   const [activeTab, setActiveTab] = useState('overview');
+  const [showSimulator, setShowSimulator] = useState(false);
   const os = getOSById(id);
 
   if (!os) {
@@ -87,9 +89,9 @@ const OSDetail = () => {
             </div>
 
             <div className="detail-hero-actions">
-              <Link to="/museum" className="btn btn-primary" style={{ background: 'rgba(255,255,255,0.95)', color: '#000' }}>
-                <Play size={15} /> {t('detail.launch')}
-              </Link>
+              <button className="btn btn-primary" onClick={() => setShowSimulator(true)} style={{ background: 'rgba(255,255,255,0.95)', color: '#000' }}>
+                <Play size={15} /> Boot Up
+              </button>
               <button
                 className="btn btn-ghost"
                 style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff' }}
@@ -236,6 +238,8 @@ const OSDetail = () => {
           </div>
         </div>
       </div>
+
+      {showSimulator && <BootSimulator os={os} onClose={() => setShowSimulator(false)} />}
     </div>
   );
 };

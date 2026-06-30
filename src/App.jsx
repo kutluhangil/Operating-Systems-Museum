@@ -11,11 +11,16 @@ import Gallery from './pages/Gallery';
 import Museum from './pages/MuseumMode';
 import About from './pages/About';
 import Favorites from './pages/Favorites';
+import { useKonamiCode } from './hooks/useKonamiCode';
+import BSOD from './components/ui/BSOD';
 
 function App() {
+  const { success, reset } = useKonamiCode();
+
   return (
     <FavoritesProvider>
       <Router>
+        {success && <BSOD onClose={reset} />}
         <Layout>
           <Routes>
             <Route path="/"          element={<Home />} />
