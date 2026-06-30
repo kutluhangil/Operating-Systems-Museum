@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { osData } from '../data/osData';
-import { X, Keyboard, ChevronLeft, ChevronRight, Monitor } from 'lucide-react';
+import { X, Keyboard, ChevronLeft, ChevronRight, Monitor, ArrowRight } from 'lucide-react';
 
 const OPEN_SOURCE = ['ubuntu', 'debian', 'fedora', 'reactos', 'haiku', 'freedos'];
 
@@ -42,7 +42,10 @@ const Museum = () => {
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 800, letterSpacing: '-0.05em', lineHeight: 1, marginBottom: 16 }}>
           {t('museum.title')}
         </h1>
-        <p style={{ color: 'var(--t2)', lineHeight: 1.65 }}>{t('museum.description')}</p>
+        <p style={{ color: 'var(--t2)', lineHeight: 1.65, marginBottom: 24 }}>{t('museum.description')}</p>
+        <Link to="/museum3d" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px', fontSize: '1.05rem', background: 'var(--accent)', color: '#fff' }}>
+          <span>Enter 3D Cyberspace</span> <ArrowRight size={18} />
+        </Link>
       </div>
 
       {/* Available OS grid */}

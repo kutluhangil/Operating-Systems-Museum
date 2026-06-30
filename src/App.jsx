@@ -9,6 +9,7 @@ import Timeline from './pages/Timeline';
 import Compare from './pages/Compare';
 import Gallery from './pages/Gallery';
 import Museum from './pages/MuseumMode';
+import Museum3D from './pages/Museum3D';
 import About from './pages/About';
 import Favorites from './pages/Favorites';
 import { useKonamiCode } from './hooks/useKonamiCode';
@@ -30,6 +31,7 @@ function App() {
             <Route path="/compare"   element={<Compare />} />
             <Route path="/gallery"   element={<Gallery />} />
             <Route path="/museum"    element={<Museum />} />
+            <Route path="/museum3d"  element={<Museum3D />} />
             <Route path="/about"     element={<About />} />
             <Route path="/favorites" element={<Favorites />} />
           </Routes>
