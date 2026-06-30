@@ -1,23 +1,8 @@
 /* ── OS Card v2 ──────────────────────────────────────────── */
 .os-card {
-  position: relative;
   display: flex;
   flex-direction: column;
-  background: var(--surf-2);
-  border: 1px solid var(--border);
-  border-radius: var(--r4);
-  overflow: hidden;
   height: 100%;
-  transition:
-    border-color var(--dur-med) var(--ease),
-    box-shadow var(--dur-med) var(--ease),
-    transform var(--dur-med) var(--ease);
-}
-
-.os-card:hover {
-  border-color: var(--border-hi);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 0 0 1px var(--border-hi);
-  transform: translateY(-4px);
 }
 
 /* Top color stripe from os.color */

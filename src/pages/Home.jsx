@@ -117,17 +117,17 @@ const Home = () => {
             {featured.map((os, i) => (
               <motion.div
                 key={os.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: i * 0.1, duration: 0.6, type: 'spring', bounce: 0.4 }}
               >
-                <Link to={`/os/${os.id}`} className="featured-item">
-                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: os.color || 'var(--accent)' }} />
-                  <div className="featured-item-icon">
+                <Link to={`/os/${os.id}`} className="featured-item card">
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: os.color || 'var(--accent)', zIndex: 2 }} />
+                  <div className="featured-item-icon hover-glow">
                     {os.icon && <img src={os.icon} alt={os.name} loading="lazy" />}
                   </div>
-                  <div>
+                  <div style={{ position: 'relative', zIndex: 2 }}>
                     <div className="featured-item-year mono">{os.releaseYear}</div>
                     <div className="featured-item-name">{os.name}</div>
                     <div className="featured-item-dev">{os.developer}</div>
@@ -148,18 +148,19 @@ const Home = () => {
         </div>
         <div className="era-grid">
           {ERAS.map((era, i) => (
-            <motion.div
+              <motion.div
               key={era.name}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.07, duration: 0.5 }}
+              transition={{ delay: i * 0.07, duration: 0.5, type: 'spring', bounce: 0.5 }}
             >
               <Link
                 to={era.q === 'all' ? '/library' : `/library?cat=${era.q}`}
-                className="era-card"
+                className="era-card card"
               >
-                <span className="era-card-icon">{era.icon}</span>
+                <span className="era-card-icon hover-glow">{era.icon}</span>
                 <span className="era-card-period mono">{era.period}</span>
                 <span className="era-card-name">{era.name}</span>
                 <span className="era-card-count">

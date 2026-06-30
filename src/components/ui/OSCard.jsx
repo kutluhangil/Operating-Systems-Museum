@@ -18,7 +18,7 @@ const OSCard = ({ os }) => {
   const fav = isFavorite(os.id);
 
   return (
-    <div className="os-card">
+    <div className="os-card card">
       {/* Color stripe */}
       <div className="os-card-stripe" style={{ background: os.color || 'var(--accent)' }} />
 
