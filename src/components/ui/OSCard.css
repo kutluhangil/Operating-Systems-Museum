@@ -52,7 +52,7 @@
 
 .os-card-icon-wrap {
   position: absolute;
-  bottom: -24px;
+  top: 72px; /* straddle the 100px swatch's lower edge (anchor is .os-card) */
   left: 24px;
   width: 52px;
   height: 52px;

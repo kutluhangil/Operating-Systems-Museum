@@ -214,22 +214,27 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* ── Layout ───────────────────────────────────────────────────── */
+/* Horizontal-only padding via longhand so a page/section that also carries
+   `.container` keeps its own vertical padding (shorthand would zero it). */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--s4);
+  padding-left: var(--s4);
+  padding-right: var(--s4);
 }
 
 .container-wide {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 var(--s4);
+  padding-left: var(--s4);
+  padding-right: var(--s4);
 }
 
 .container-narrow {
   max-width: 880px;
   margin: 0 auto;
-  padding: 0 var(--s4);
+  padding-left: var(--s4);
+  padding-right: var(--s4);
 }
 
 /* ── Page Wrapper ─────────────────────────────────────────────── */
