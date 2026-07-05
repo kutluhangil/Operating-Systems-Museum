@@ -124,18 +124,27 @@ const Home = () => {
                 transition={{ delay: i * 0.07, duration: 0.5, type: 'spring', bounce: 0.35 }}
               >
                 <Link to={`/os/${os.id}?boot=true`} className="featured-item">
-                  {/* Subtle color accent at top */}
-                  <div style={{
-                    position: 'absolute', top: 0, left: 0, right: 0, height: 3,
-                    background: os.color || 'linear-gradient(90deg, var(--accent), var(--teal, #5ac8f5))',
-                    opacity: 0.7,
-                  }} />
-                  <div className="featured-item-icon">
+                  <span
+                    className="featured-item-accent"
+                    style={{ background: os.color || 'var(--accent)' }}
+                  />
+                  <div
+                    className="logo-tile"
+                    style={{
+                      background: `${os.color || '#888'}14`,
+                      borderColor: `${os.color || '#888'}2e`,
+                    }}
+                  >
                     {os.icon ? <img src={os.icon} alt={os.name} loading="lazy" /> : <span>💾</span>}
                   </div>
-                  <div className="featured-item-year mono">{os.releaseYear}</div>
-                  <div className="featured-item-name">{os.name}</div>
-                  <div className="featured-item-dev">{os.developer}</div>
+                  <div className="featured-item-meta">
+                    <div className="featured-item-year mono">{os.releaseYear}</div>
+                    <div className="featured-item-name">{os.name}</div>
+                    <div className="featured-item-dev">{os.developer}</div>
+                  </div>
+                  <span className="featured-item-arrow">
+                    <ArrowRight size={15} />
+                  </span>
                 </Link>
               </motion.div>
             ))}
@@ -182,9 +191,10 @@ const Home = () => {
                 <span className="era-card-period mono">{era.period}</span>
                 <span className="era-card-name">{era.name}</span>
                 <span className="era-card-count">
-                  {era.q === 'all'
-                    ? `${osData.length} systems`
-                    : `${osData.filter(o => o.category === era.category).length} systems`}
+                  <b>{era.q === 'all'
+                    ? osData.length
+                    : osData.filter(o => o.category === era.category).length}</b> systems
+                  <ArrowRight size={13} className="era-card-arrow" />
                 </span>
               </Link>
             </motion.div>
@@ -193,27 +203,40 @@ const Home = () => {
       </section>
 
       {/* ── CTA Section ──────────────────────────────────────── */}
-      <motion.section
-        className="cta-section"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-      >
-        <h2 className="cta-title">Start Exploring Now</h2>
-        <p className="cta-subtitle">
-          From the first command-line interfaces to modern graphical systems —
-          every milestone of computing history is a click away.
-        </p>
-        <div className="cta-buttons">
-          <Link to="/timeline" className="btn btn-primary">
-            View Timeline <ArrowRight size={15} />
-          </Link>
-          <Link to="/museum" className="btn btn-ghost">
-            3D Museum Mode
-          </Link>
-        </div>
-      </motion.section>
+      <section className="cta-wrap container">
+        <motion.div
+          className="cta-section"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="cta-glow" />
+          <div className="cta-eyebrow">
+            <span className="cta-eyebrow-dot" /> Begin the journey
+          </div>
+          <h2 className="cta-title">Start Exploring Now</h2>
+          <p className="cta-subtitle">
+            From the first command-line interfaces to modern graphical systems —
+            every milestone of computing history is a click away.
+          </p>
+          <div className="cta-buttons">
+            <Link to="/timeline" className="btn btn-primary">
+              View Timeline <ArrowRight size={15} />
+            </Link>
+            <Link to="/museum" className="btn btn-ghost">
+              <Cpu size={15} /> 3D Museum Mode
+            </Link>
+          </div>
+          <div className="cta-stats">
+            <span><b>{totalOS}+</b> Systems</span>
+            <i />
+            <span><b>{decades}</b> Decades</span>
+            <i />
+            <span><b>{developers}</b> Makers</span>
+          </div>
+        </motion.div>
+      </section>
 
       <div style={{ height: 'var(--s5)' }} />
     </div>

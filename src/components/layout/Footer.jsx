@@ -1,105 +1,63 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { Layers, Code, MessageSquare, ArrowUpRight } from 'lucide-react';
+import { Layers, Code, Terminal, Heart } from 'lucide-react';
+import './Footer.css';
 
 const EXPLORE_LINKS = [['/', 'Home'], ['/timeline', 'Timeline'], ['/library', 'OS Library'], ['/compare', 'Compare']];
-const MUSEUM_LINKS  = [['/gallery', 'Gallery'], ['/sounds', 'Sound Gallery'], ['/museum', '3D Museum'], ['/favorites', 'Favorites'], ['/easter-eggs', 'Easter Eggs'], ['/about', 'About']];
+const MUSEUM_LINKS  = [['/gallery', 'Gallery'], ['/sounds', 'Sound Gallery'], ['/museum', '3D Museum'], ['/favorites', 'Favorites']];
+const MORE_LINKS    = [['/easter-eggs', 'Easter Eggs'], ['/about', 'About']];
 
-const Footer = () => {
-  const { t } = useTranslation();
-
-  return (
-    <footer style={{
-      borderTop: '1px solid var(--border)',
-      background: 'linear-gradient(180deg, var(--surf-1) 0%, var(--ink) 100%)',
-      padding: '64px 0 40px',
-      position: 'relative',
-      zIndex: 1,
-      marginTop: 'auto',
-    }}>
-      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '48px' }}>
-        {/* Brand */}
-        <div style={{ maxWidth: 300 }}>
-          <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 16, textDecoration: 'none' }}>
-            <div style={{
-              width: 30, height: 30,
-              background: 'var(--accent)',
-              borderRadius: 9,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 2px 12px var(--accent-glow)',
-            }}>
-              <Layers size={15} color="#FBFAF7" />
-            </div>
-            <span style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 700,
-              fontSize: '1rem',
-              letterSpacing: '-0.03em',
-              color: 'var(--t1)',
-            }}>OS Museum</span>
-          </Link>
-          <p style={{ color: 'var(--t3)', fontSize: '0.85rem', lineHeight: 1.7 }}>
-            A curated archive of operating systems history — from the earliest terminals to modern platforms.
-          </p>
-        </div>
-
-        {/* Links */}
-        <div style={{ display: 'flex', gap: '48px', flexWrap: 'wrap' }}>
-          <div>
-            <p style={{ color: 'var(--t3)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '20px' }}>Explore</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              {EXPLORE_LINKS.map(([to, label]) => (
-                <Link key={to} to={to} style={{ color: 'var(--t2)', fontSize: '0.88rem', textDecoration: 'none', transition: 'color 120ms' }}
-                  onMouseEnter={e => e.target.style.color = 'var(--t1)'}
-                  onMouseLeave={e => e.target.style.color = 'var(--t2)'}
-                >{label}</Link>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p style={{ color: 'var(--t3)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '20px' }}>Museum</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              {MUSEUM_LINKS.map(([to, label]) => (
-                <Link key={to} to={to} style={{ color: 'var(--t2)', fontSize: '0.88rem', textDecoration: 'none', transition: 'color 120ms' }}
-                  onMouseEnter={e => e.target.style.color = 'var(--t1)'}
-                  onMouseLeave={e => e.target.style.color = 'var(--t2)'}
-                >{label}</Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div className="container" style={{
-        marginTop: '48px',
-        paddingTop: '24px',
-        borderTop: '1px solid var(--border)',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '12px',
-      }}>
-        <p style={{ color: 'var(--t3)', fontSize: '0.8rem' }}>
-          © {new Date().getFullYear()} OS Museum · Built with React & Framer Motion
+const Footer = () => (
+  <footer className="site-footer">
+    <div className="container footer-top">
+      {/* Brand */}
+      <div className="footer-brand">
+        <Link to="/" className="footer-brand-logo">
+          <span className="footer-brand-mark">
+            <Layers size={16} color="#FBFAF7" />
+          </span>
+          <span className="footer-brand-name">OS Museum</span>
+        </Link>
+        <p className="footer-brand-desc">
+          A curated archive of operating systems history — from the earliest
+          terminals to modern platforms.
         </p>
-        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <a href="https://github.com" target="_blank" rel="noreferrer"
-            style={{ color: 'var(--t3)', display: 'flex', transition: 'color 120ms' }}
-            onMouseEnter={e => e.currentTarget.style.color = 'var(--t1)'}
-            onMouseLeave={e => e.currentTarget.style.color = 'var(--t3)'}
-          ><Code size={17} /></a>
-          <a href="https://twitter.com" target="_blank" rel="noreferrer"
-            style={{ color: 'var(--t3)', display: 'flex', transition: 'color 120ms' }}
-            onMouseEnter={e => e.currentTarget.style.color = 'var(--t1)'}
-            onMouseLeave={e => e.currentTarget.style.color = 'var(--t3)'}
-          ><MessageSquare size={17} /></a>
+        <div className="footer-social">
+          <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub"><Code size={17} /></a>
+          <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter"><Terminal size={17} /></a>
         </div>
       </div>
-    </footer>
-  );
-};
+
+      {/* Explore */}
+      <div>
+        <p className="footer-col-title">Explore</p>
+        <nav className="footer-col-links">
+          {EXPLORE_LINKS.map(([to, label]) => <Link key={to} to={to}>{label}</Link>)}
+        </nav>
+      </div>
+
+      {/* Museum */}
+      <div>
+        <p className="footer-col-title">Museum</p>
+        <nav className="footer-col-links">
+          {MUSEUM_LINKS.map(([to, label]) => <Link key={to} to={to}>{label}</Link>)}
+        </nav>
+      </div>
+
+      {/* More */}
+      <div>
+        <p className="footer-col-title">More</p>
+        <nav className="footer-col-links">
+          {MORE_LINKS.map(([to, label]) => <Link key={to} to={to}>{label}</Link>)}
+        </nav>
+      </div>
+    </div>
+
+    <div className="container footer-bottom">
+      <p className="footer-copy">© {new Date().getFullYear()} OS Museum. All systems preserved.</p>
+      <span className="footer-made">Built with <Heart size={13} fill="currentColor" /> React &amp; Framer Motion</span>
+    </div>
+  </footer>
+);
 
 export default Footer;
