@@ -193,8 +193,9 @@
 }
 
 /* ══ FEATURED SECTION ══════════════════════════════════════════ */
-.featured-section {
-  padding: var(--s7) 0;
+.featured-section.container {
+  padding-top: var(--s7);
+  padding-bottom: var(--s7);
 }
 
 .featured-header {
@@ -344,8 +345,11 @@
 }
 
 /* ══ ERAS / BENTO GRID ═════════════════════════════════════════ */
-.era-section {
-  padding: 0 0 var(--s7);
+/* Compound selector (specificity 0,2,0) beats `.container` (0,1,0),
+   otherwise `.container { padding: 0 var(--s4) }` resets vertical padding to 0. */
+.era-section.container {
+  padding-top: 0;
+  padding-bottom: var(--s7);
 }
 
 .era-header {
@@ -453,8 +457,9 @@
 .era-card:hover .era-card-arrow { opacity: 1; transform: translateX(0); }
 
 /* ══ CTA SECTION ═══════════════════════════════════════════════ */
-.cta-wrap {
-  padding: 0 0 var(--s7);
+.cta-wrap.container {
+  padding-top: 0;
+  padding-bottom: var(--s7);
 }
 .cta-section {
   border-radius: var(--r5);
