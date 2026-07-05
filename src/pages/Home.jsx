@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, ChevronDown, Layers, Cpu } from 'lucide-react';
+import { ArrowRight, ChevronDown, Layers, Cpu, GitCompare } from 'lucide-react';
 import { osData } from '../data/osData';
 import OnThisDay from '../components/ui/OnThisDay';
 import './Home.css';
@@ -16,6 +16,15 @@ const ERAS = [
 ];
 
 const FEATURED_IDS = ['windows-95', 'macos-x', 'ubuntu', 'android', 'windows-xp', 'ios', 'ms-dos'];
+
+// Continuous hand-drawn squiggle for the hero illustration.
+const SQUIGGLE_D =
+  'M40,270 C40,215 110,205 130,255 C148,300 105,330 150,335 ' +
+  'C205,341 200,262 168,240 C205,222 250,240 252,285 ' +
+  'C254,325 210,345 245,368 C285,393 345,360 335,300 ' +
+  'C328,258 300,240 330,215 C360,190 330,150 370,150 ' +
+  'C420,150 435,235 415,300 C393,372 320,420 255,432 ' +
+  'C205,441 250,398 300,405';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -42,50 +51,59 @@ const Home = () => {
         </div>
         <div className="hero-grid" />
 
-        <div className="hero-content">
-          <motion.div {...fadeUp(0)}>
-            <div className="hero-badge">
-              <span className="hero-badge-dot" />
-              Digital Museum · {totalOS}+ Operating Systems
-            </div>
-          </motion.div>
+        <div className="hero-inner">
+          {/* Left — copy + entry */}
+          <div className="hero-left">
+            <motion.div {...fadeUp(0)}>
+              <div className="hero-badge">
+                <span className="hero-badge-dot" />
+                Digital Museum · {totalOS}+ Operating Systems
+              </div>
+            </motion.div>
 
-          <motion.h1 className="hero-title" {...fadeUp(0.1)}>
-            The History of{' '}
-            <br />
-            <span className="hero-title-gradient">Computing</span>
-            <br />
-            Preserved.
-          </motion.h1>
+            <motion.h1 className="hero-title" {...fadeUp(0.1)}>
+              The history of{' '}
+              <span className="hero-title-gradient">computing</span>,
+              <br />
+              preserved.
+            </motion.h1>
 
-          <motion.p className="hero-subtitle" {...fadeUp(0.2)}>
-            {t('home.subtitle')}
-          </motion.p>
+            <motion.p className="hero-subtitle" {...fadeUp(0.2)}>
+              {t('home.subtitle')}
+            </motion.p>
 
-          <motion.div className="hero-cta" {...fadeUp(0.3)}>
-            <Link to="/timeline" className="btn btn-primary">
-              {t('home.explore_timeline')} <ArrowRight size={15} />
-            </Link>
-            <Link to="/library" className="btn btn-ghost">
-              {t('home.browse_systems')} <Layers size={15} />
-            </Link>
-          </motion.div>
+            <motion.div className="hero-search" {...fadeUp(0.3)}>
+              <Link to="/timeline" className="hero-search-pill">
+                <span className="hero-search-placeholder">
+                  Walk the timeline of operating systems…
+                </span>
+                <span className="hero-search-btn">
+                  Explore <ArrowRight size={15} />
+                </span>
+              </Link>
+            </motion.div>
 
-          <motion.div className="hero-stats" {...fadeUp(0.45)}>
-            <div className="hero-stat">
-              <div className="hero-stat-num">{totalOS}+</div>
-              <div className="hero-stat-label">{t('home.stats_os')}</div>
-            </div>
-            <div className="hero-stat-sep" />
-            <div className="hero-stat">
-              <div className="hero-stat-num">{decades}</div>
-              <div className="hero-stat-label">{t('home.stats_decades')}</div>
-            </div>
-            <div className="hero-stat-sep" />
-            <div className="hero-stat">
-              <div className="hero-stat-num">{developers}</div>
-              <div className="hero-stat-label">{t('home.stats_developers')}</div>
-            </div>
+            <motion.div className="hero-chips" {...fadeUp(0.4)}>
+              <Link to="/library" className="hero-chip"><Layers size={14} /> Library</Link>
+              <Link to="/museum" className="hero-chip"><Cpu size={14} /> 3D Museum</Link>
+              <Link to="/compare" className="hero-chip"><GitCompare size={14} /> Compare</Link>
+            </motion.div>
+          </div>
+
+          {/* Right — Spider-Verse squiggle */}
+          <motion.div
+            className="hero-art"
+            initial={{ opacity: 0, scale: 0.94 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.28, 0.11, 0.32, 1] }}
+          >
+            <div className="squiggle-halftone" />
+            <svg className="squiggle" viewBox="0 0 480 500" aria-hidden="true">
+              <circle className="squiggle-circle" cx="178" cy="150" r="52" />
+              <path className="squiggle-ghost red" d={SQUIGGLE_D} />
+              <path className="squiggle-ghost cyan" d={SQUIGGLE_D} />
+              <path className="squiggle-main" d={SQUIGGLE_D} />
+            </svg>
           </motion.div>
         </div>
 
