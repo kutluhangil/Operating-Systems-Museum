@@ -61,15 +61,16 @@ const OSDetail = () => {
 
   return (
     <div>
-      {/* ── Full-Bleed Hero ── */}
-      <div className="detail-hero" style={{ background: heroColor }}>
+      {/* ── Hero ── */}
+      <div className="detail-hero">
+        {/* thin OS-color identity strip */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: heroColor, zIndex: 2 }} />
         <div className="detail-hero-bg">
-          {/* radial highlight */}
+          {/* subtle OS-color tint */}
           <div style={{
             position: 'absolute', inset: 0,
-            background: `radial-gradient(ellipse at 60% 40%, ${heroColor}dd 0%, ${heroColor}22 100%)`,
+            background: `radial-gradient(ellipse at 72% 25%, ${heroColor}26 0%, transparent 58%)`,
           }} />
-          <div className="detail-hero-gradient" />
         </div>
 
         <div className="container detail-hero-inner">
@@ -99,12 +100,11 @@ const OSDetail = () => {
             </div>
 
             <div className="detail-hero-actions">
-              <button className="btn btn-primary" onClick={() => setShowSimulator(true)} style={{ background: 'rgba(255,255,255,0.95)', color: '#000' }}>
+              <button className="btn btn-primary" onClick={() => setShowSimulator(true)}>
                 <Play size={15} /> Boot Up
               </button>
               <button
                 className="btn btn-ghost"
-                style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff' }}
                 onClick={() => toggle(os.id)}
               >
                 <Heart size={15} fill={fav ? 'currentColor' : 'none'} />

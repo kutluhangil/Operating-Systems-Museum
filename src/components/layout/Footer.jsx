@@ -24,12 +24,12 @@ const Footer = () => {
           <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 16, textDecoration: 'none' }}>
             <div style={{
               width: 30, height: 30,
-              background: 'linear-gradient(135deg, var(--accent) 0%, var(--teal, #5ac8f5) 100%)',
+              background: 'var(--accent)',
               borderRadius: 9,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 2px 12px rgba(41,151,255,0.35)',
+              boxShadow: '0 2px 12px var(--accent-glow)',
             }}>
-              <Layers size={15} color="#fff" />
+              <Layers size={15} color="#FBFAF7" />
             </div>
             <span style={{
               fontFamily: 'var(--font-display)',

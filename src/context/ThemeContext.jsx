@@ -9,14 +9,14 @@ export function useTheme() {
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem('os-museum-theme');
-    return savedTheme || 'dark'; // default is dark
+    return savedTheme || 'light'; // default is Claude warm cream
   });
 
   useEffect(() => {
     localStorage.setItem('os-museum-theme', theme);
     document.documentElement.removeAttribute('data-theme');
-    
-    if (theme !== 'dark') {
+
+    if (theme !== 'light') {
       document.documentElement.setAttribute('data-theme', theme);
     }
   }, [theme]);
@@ -24,7 +24,7 @@ export function ThemeProvider({ children }) {
   const value = {
     theme,
     setTheme,
-    themes: ['dark', 'light', 'retro']
+    themes: ['light', 'dark', 'retro']
   };
 
   return (

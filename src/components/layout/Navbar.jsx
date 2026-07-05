@@ -90,9 +90,9 @@ const Navbar = () => {
             </button>
 
             <button className="btn-icon" onClick={toggleTheme} aria-label="Toggle theme">
-              {theme === 'dark' && <Sun size={16} />}
-              {theme === 'light' && <Terminal size={16} />}
-              {theme === 'retro' && <Moon size={16} />}
+              {theme === 'light' && <Moon size={16} />}
+              {theme === 'dark' && <Terminal size={16} />}
+              {theme === 'retro' && <Sun size={16} />}
             </button>
 
             <button className="nav-lang" onClick={toggleLang}>
