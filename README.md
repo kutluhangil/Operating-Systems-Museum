@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/media/hero.svg" alt="OS Museum — an interactive archive of operating-systems history" width="100%">
+<img src="docs/media/hero.svg" alt="OS Museum — an exhibit case walking from the command line to an early GUI to a modern desktop, with each system's catalogue entry and a timeline" width="100%">
 
 <p>
   <a href="https://osmuseum.vercel.app/"><img alt="Live demo" src="https://img.shields.io/badge/live%20demo-visit%20the%20museum-e8735a?style=for-the-badge&labelColor=17120f"></a>
@@ -69,6 +69,42 @@ The whole museum lives in one of three moods, swapped with a single toggle:
 
 <img src="docs/media/divider.svg" width="100%" alt="">
 
+## The collection
+
+| Wing | Systems |
+|---|---|
+| **DOS** | MS-DOS 1.0 (1981), MS-DOS 6.22 (1994), FreeDOS (1994) |
+| **Desktop** | Windows 1.0 (1985), 95, 98, ME, XP, Vista, 7, 8, 10 and 11 (2021); Mac OS X 10.0 Cheetah (2001), macOS Monterey (2021); ChromeOS (2011) |
+| **Linux** | Debian (1993), Fedora (2003), Ubuntu (2004) |
+| **Mobile** | iOS (2007), Android (2008) |
+| **Experimental** | ReactOS (1998), Haiku (2001) |
+
+<img src="docs/media/divider.svg" width="100%" alt="">
+
+## What an exhibit holds
+
+Every system is one entry in a single catalogue (`src/data/osData.js`), and every page in the museum reads from it, so the archive, the timeline, the comparison bench and the gallery never disagree.
+
+| Field | Example (Windows 95) |
+|---|---|
+| Developer · release date | Microsoft · 24 August 1995 |
+| Kernel · architecture | Windows 9x (hybrid) · x86 16/32-bit |
+| File systems | FAT16, FAT32 (OSR2) |
+| Lineage | Predecessor and successor, which draw the evolution tree |
+| Status · end of life | Whether it is still supported, and since when not |
+| Editions · system requirements · default browser | The practical detail of the time |
+| History · interesting facts · description | The story, in Turkish and English |
+
+The startup sounds in the Sound Room are synthesised with Web Audio oscillators; the museum ships no audio files.
+
+<img src="docs/media/divider.svg" width="100%" alt="">
+
+## Two languages
+
+Every label, exhibit and story exists in Turkish and English through `i18next`, switchable at any time; the chosen atmosphere is remembered between visits.
+
+<img src="docs/media/divider.svg" width="100%" alt="">
+
 ## Türkçe özet
 
 **OS Museum**, beş on yıla yayılan 23 işletim sisteminin tarihini anlatan etkileşimli bir dijital müze. Her sistemin kendi sergi sayfası var: tarihçe, teknik özellikler, sürümler, ilginç bilgiler ve izlenebilir bir açılış simülasyonu. Zaman çizelgesi, iki sistemi yan yana karşılaştırma, açılış sesleri odası ve 3B müze kanadı da bulunuyor. Gündüz, mesai sonrası ve retro CRT olmak üzere üç atmosferi ve Türkçe/İngilizce arayüzü var.
@@ -95,5 +131,5 @@ src/context/     theme and favourites
 <div align="center">
 <br>
 <a href="https://github.com/kutluhangil"><img src="docs/media/signature.svg" width="100%" alt="Built by kutluhangil"></a>
-<sub>An independent history project · all trademarks belong to their respective owners.</sub>
+<sub>An independent history project · all trademarks belong to their respective owners · the screens in the banner are generic illustrations of each era.</sub>
 </div>
