@@ -1,182 +1,99 @@
 <div align="center">
 
-<br />
+<img src="docs/media/hero.svg" alt="OS Museum — an interactive archive of operating-systems history" width="100%">
 
-<img src="https://img.shields.io/badge/Digital_Museum-Operating_Systems-D97757?style=for-the-badge&logoColor=white" alt="museum" />
-<img src="https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react&logoColor=black" alt="react" />
-<img src="https://img.shields.io/badge/Vite-8-646cff?style=for-the-badge&logo=vite&logoColor=white" alt="vite" />
-<img src="https://img.shields.io/badge/Three.js-r185-000000?style=for-the-badge&logo=threedotjs&logoColor=white" alt="threejs" />
-<img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="framer" />
+<p>
+  <a href="https://osmuseum.vercel.app/"><img alt="Live demo" src="https://img.shields.io/badge/live%20demo-visit%20the%20museum-e8735a?style=for-the-badge&labelColor=17120f"></a>
+  <img alt="React" src="https://img.shields.io/badge/React-Vite-3fbf7f?style=for-the-badge&labelColor=17120f">
+  <img alt="R3F" src="https://img.shields.io/badge/3D%20wing-React%20Three%20Fiber-d9a441?style=for-the-badge&labelColor=17120f">
+  <img alt="i18n" src="https://img.shields.io/badge/UI-TR%20%2F%20EN-e8735a?style=for-the-badge&labelColor=17120f">
+</p>
 
-<br /><br />
+<p><em>A curated, interactive archive of 23 operating systems across five decades.<br>
+Every entry is a full exhibit: history, specs, trivia, editions and a boot you can watch.</em></p>
 
-# OS Museum ✦
-
-### The history of computing, preserved — *from the first command line to the modern desktop*.
-
-[The Archive](#-whats-inside) · [The Exhibit Hall](#-the-exhibit-hall--every-system-boots) · [Tech Stack](#-tech-stack) · [Getting Started](#-getting-started)
+<a href="https://osmuseum.vercel.app/"><img src="docs/screenshots/01-home-hero.png" alt="The museum lobby in daylight" width="100%"></a>
 
 </div>
 
----
+<img src="docs/media/divider.svg" width="100%" alt="">
 
-## ✦ Overview
+## Three atmospheres
 
-A curated, interactive archive of operating-systems history — **23 systems** spanning five decades, from MS-DOS to modern platforms. Every entry is a full exhibit: history, technical specs, trivia, editions, and a boot experience.
+The whole museum lives in one of three moods, swapped with a single toggle:
 
-The whole museum lives in one of **three atmospheres**, swapped with a single toggle:
+- **Daylight**: warm cream canvas, editorial serif display, espresso ink. The default.
+- **After-hours**: the archive after closing, in warm charcoal with coral lamplight.
+- **Retro CRT**: phosphor green, scanlines and flicker for the true believers.
 
-- **☀️ Daylight** — warm cream canvas, editorial serif display, espresso ink. The default.
-- **🌙 After-hours** — the archive after closing: warm charcoal, lifted coral lamplight.
-- **📟 Retro CRT** — phosphor green, scanlines, and flicker for the true believers.
+<table>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/01-home-hero.png" alt="Daylight"></td>
+    <td width="50%"><img src="docs/screenshots/02-home-hero-dark.png" alt="After-hours"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>daylight</code></td>
+    <td align="center"><code>after-hours</code></td>
+  </tr>
+</table>
 
-<div align="center">
-<br />
-<img src="docs/screenshots/01-home-hero.png" alt="Daylight — the lobby" width="49%" />
-<img src="docs/screenshots/02-home-hero-dark.png" alt="After-hours — the archive" width="49%" />
-<br />
-<em>Same museum, two atmospheres — daylight (left) and after-hours (right).</em>
-</div>
+<img src="docs/media/divider.svg" width="100%" alt="">
 
----
-
-## ⚡ What's inside
+## The wings
 
 | Wing | What it does |
-|------|-------------|
-| 🏛️ **The Lobby** *(Home)* | Serif hero, featured systems rail, "On This Day" in computing history, and browse-by-era shortcuts. |
-| 🗂️ **The Archive** *(Library)* | Every one of the 23 systems as a card — searchable and filterable by category and status. |
-| 🖥️ **The Exhibit Hall** *(OS Detail)* | The full case file per system: overview, history, facts, specs, editions — plus a **live boot simulator**. |
-| 🕰️ **The Timeline** | An evolution tree of releases from 1981 onward, with predecessor / successor lineage. |
-| ⚖️ **The Comparison Bench** *(Compare)* | Put any two systems side by side with a scrubbable split view. |
-| 🖼️ **The Gallery** | A visual grid of every system's mark and era, filterable by category. |
-| 🔊 **The Sound Room** *(Sounds)* | Startup chimes and boot sounds across the decades. |
-| 🧊 **The 3D Wing** *(Museum Mode)* | An interactive 3D museum built with React Three Fiber. |
-| ⭐ **The Collection** *(Favorites)* | Star systems and keep your own curated shelf, saved locally. |
-| 🥚 **Easter Eggs** | A hidden terminal, a Konami-code surprise, and a few more for the curious. |
+|---|---|
+| **The Lobby** | A serif hero, a featured-systems rail, "On This Day" in computing history and browse-by-era shortcuts. |
+| **The Archive** | All 23 systems as cards, searchable and filterable by category and status. |
+| **The Exhibit Hall** | The full case file per system, from overview and history to specs and editions, plus a live boot simulator. |
+| **The Timeline** | An evolution tree of releases since 1981, with predecessor and successor lineage. |
+| **The Comparison Bench** | Any two systems side by side in a scrubbable split view. |
+| **The Gallery** | A visual grid of every system's era, filterable by category. |
+| **The Sound Room** | Startup chimes and boot sounds across the decades. |
+| **The 3D Wing** | An interactive 3D museum built with React Three Fiber. |
+| **The Collection** | Star systems and keep your own shelf, saved locally. |
+| **Easter eggs** | A hidden terminal, a Konami-code surprise and a few more. |
 
----
+<table>
+  <tr>
+    <td width="33%"><img src="docs/screenshots/03-library.png" alt="The Archive"></td>
+    <td width="33%"><img src="docs/screenshots/04-os-detail.png" alt="An exhibit page"></td>
+    <td width="33%"><img src="docs/screenshots/05-timeline.png" alt="The Timeline"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>archive</code></td>
+    <td align="center"><code>exhibit</code> · with boot simulator</td>
+    <td align="center"><code>timeline</code> · since 1981</td>
+  </tr>
+</table>
 
-## 🖥️ The Exhibit Hall — every system boots
+<img src="docs/media/divider.svg" width="100%" alt="">
 
-The centrepiece. Each system has a full case file at `/os/:id` — release year, developer, kernel, filesystem, default browser, status, a written history, curated trivia, a technical spec table, editions, and predecessor / successor links.
+## Türkçe özet
 
-Hit **Boot Up** and the system's startup sequence plays out in a simulated screen.
+**OS Museum**, beş on yıla yayılan 23 işletim sisteminin tarihini anlatan etkileşimli bir dijital müze. Her sistemin kendi sergi sayfası var: tarihçe, teknik özellikler, sürümler, ilginç bilgiler ve izlenebilir bir açılış simülasyonu. Zaman çizelgesi, iki sistemi yan yana karşılaştırma, açılış sesleri odası ve 3B müze kanadı da bulunuyor. Gündüz, mesai sonrası ve retro CRT olmak üzere üç atmosferi ve Türkçe/İngilizce arayüzü var.
 
-<div align="center">
-<br />
-<img src="docs/screenshots/04-os-detail.png" alt="A system's case file" width="80%" />
-<br />
-<em>A single system's case file — tabbed exhibit with a live boot simulator.</em>
-</div>
+<img src="docs/media/divider.svg" width="100%" alt="">
 
-The rest of the museum:
+## Development
 
-- **The Archive** — 23 systems, live search across name / developer / description, category and status filters.
-- **The Timeline** — a year-by-year evolution tree showing how each release descends from the last.
-- **The Gallery** — every system's mark, colour-coded by era, filterable in place.
-
-<div align="center">
-<br />
-<img src="docs/screenshots/03-library.png" alt="The Archive — system register" width="49%" />
-<img src="docs/screenshots/06-gallery.png" alt="The Gallery — visual grid" width="49%" />
-<br />
-<em>The Archive (left) and the Gallery (right).</em>
-<br /><br />
-<img src="docs/screenshots/05-timeline.png" alt="The Timeline — evolution tree" width="80%" />
-<br />
-<em>The Timeline — five decades of releases, logged.</em>
-</div>
-
-> **Note:** the museum runs entirely client-side. All 23 systems live in a single data file — no backend, no database, no API keys.
-
----
-
-## 🛠️ Tech Stack
-
-```
-Core              →  React 19 · JavaScript (JSX) · Vite 8
-Styling           →  Design-token CSS · Newsreader / Inter / JetBrains Mono
-Animations        →  Framer Motion (hero reveals, section transitions, theme swap)
-3D                →  Three.js · @react-three/fiber · @react-three/drei
-Routing           →  React Router 7
-i18n              →  i18next · react-i18next  (English / Türkçe)
-Icons             →  lucide-react
-Theming           →  Light (cream) · Dark (charcoal) · Retro (CRT) — persisted locally
-Lint / Build      →  Oxlint · Vite
-```
-
-All system data lives in [`src/data/osData.js`](src/data/osData.js) — edit that one file to add or change a system; never the components.
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js `>= 18`
-- npm
-
-### Local development
-
-```bash
-git clone https://github.com/kutluhangil/Operating-Systems-Museum.git
-cd Operating-Systems-Museum
+```sh
 npm install
-
-# Dev server → http://localhost:5173
-npm run dev
+npm run dev      # http://localhost:5173
+npm run lint     # oxlint
+npm run build
 ```
 
-### Other scripts
-
-```bash
-npm run build     # production build → dist/
-npm run preview   # serve the production build locally
-npm run lint      # Oxlint
 ```
-
----
-
-## 📐 Project Structure
-
+src/pages/       one page per wing and per exhibit
+src/components/  cards, boot simulator, compare bench, 3D wing
+src/data/        the 23-system catalogue
+src/i18n/        Turkish and English strings
+src/context/     theme and favourites
 ```
-Operating-Systems-Museum/
-├── public/                     # Static assets (favicon, OS logos)
-├── src/
-│   ├── components/
-│   │   ├── layout/             # Navbar · Footer · Layout
-│   │   ├── ui/                 # OSCard · BootSimulator · CompareSlider · SearchOverlay · …
-│   │   └── 3d/                 # ExhibitPedestal (React Three Fiber)
-│   ├── pages/                  # Home · Library · OSDetail · Timeline · Compare
-│   │                           # Gallery · SoundGallery · MuseumMode · Museum3D · About · Favorites
-│   ├── context/                # ThemeContext · FavoritesContext
-│   ├── data/osData.js          # ← all system data lives here
-│   ├── i18n/                   # en.json · tr.json
-│   ├── hooks/                  # useKonamiCode
-│   ├── utils/                  # SoundManager
-│   └── index.css               # design tokens + base components
-├── docs/screenshots/           # README imagery
-├── vite.config.js
-└── package.json
-```
-
----
-
-## ☁️ Deployment
-
-Built as a **static SPA** with Vite — `npm run build` emits everything to `dist/`, which serves from any static host (Vercel, Netlify, GitHub Pages, an S3 bucket). Client-side routing is handled by React Router, so configure the host to rewrite unknown paths to `index.html`.
-
----
-
-## 🤝 Contact
-
-* GitHub — [kutluhangil](https://github.com/kutluhangil)
-* LinkedIn — [Kutluhan Gül](https://linkedin.com/in/kutluhangil)
-
----
 
 <div align="center">
-
-Built by hand. ✦ © 2026 Kutluhan Gül
-
+<br>
+<a href="https://github.com/kutluhangil"><img src="docs/media/signature.svg" width="100%" alt="Built by kutluhangil"></a>
+<sub>An independent history project · all trademarks belong to their respective owners.</sub>
 </div>
